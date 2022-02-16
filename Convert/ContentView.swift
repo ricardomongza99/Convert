@@ -13,13 +13,45 @@ struct ContentView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
-            HStack {
-                TextField("From value", value: $fromValue, format: .number)
+            Section {
+                VStack {
+                    HStack(alignment: .center, spacing: 20){
+                        TextField("From value", value: $fromValue, format: .number)
+                            .font(.title)
+                            .textFieldStyle(.roundedBorder)
+                            
+                        Text("=")
+                            .foregroundColor(.white)
+                            .font(.title)
 
-                
-                TextField("To value", value: $toValue, format: .number)
+                        TextField("To value", value: $toValue, format: .number)
+                            .font(.title)
+                            .textFieldStyle(.roundedBorder)
+
+                    }
+                    
+                    HStack(alignment: .center, spacing: 0) {
+                        Text("kg")
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+
+                        Button {
+                            print("Swap")
+                        } label: {
+                            Text("Swap")
+                        }
+
+                        Text("lb")
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                    }
+                }
+                .padding()
+
             }
             .background(Color.primaryColor)
+            
+            Spacer()
         }
     }
 }
