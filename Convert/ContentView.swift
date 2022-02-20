@@ -23,9 +23,12 @@ struct ContentView: View {
                 VStack {
                     HStack(alignment: .center, spacing: 20){
                         TextField("From value", value: $fromValue, format: .number)
-                            .font(.title)
-                            .textFieldStyle(.roundedBorder)
-                            .cornerRadius(40)
+                            .font(.system(size: 36))
+                            .frame(height: 64)
+                            .padding([.leading, .trailing], 26)
+                            .background(
+                                Capsule().fill(Color.white)
+                            )
                             
                         Text("=")
                             .foregroundColor(.white)
@@ -33,13 +36,18 @@ struct ContentView: View {
                             .bold()
 
                         TextField("To value", value: $toValue, format: .number)
-                            .font(.title)
-                            .textFieldStyle(.roundedBorder)
+                            .font(.system(size: 36))
+                            .frame(height: 64)
+                            .padding([.leading, .trailing], 26)
+                            .background(
+                                Capsule().fill(Color.white)
+                            )
 
                     }
                     
-                    HStack(alignment: .center, spacing: 0) {
+                    HStack(alignment: .top, spacing: 0) {
                         Text("kg")
+                            .font(.title)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
 
@@ -48,9 +56,11 @@ struct ContentView: View {
                         } label: {
                             Image("arrows")
                                 .aspectRatio(1, contentMode: .fit)
+                                .frame(width: 40, height: 40)
                         }
 
                         Text("lb")
+                            .font(.title)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                     }
