@@ -11,6 +11,12 @@ struct ContentView: View {
     @State private var fromValue = 0.0
     @State private var toValue = 0.0
     
+    @State private var fromUnit = "Kilogram"
+    @State private var toUnit = "Pound"
+    
+    let weightUnits = ["Milligram", "Gram", "Kilogram", "Ounce", "Pound", "Stone", "Tonne"]
+    
+    
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             Section {
@@ -19,10 +25,12 @@ struct ContentView: View {
                         TextField("From value", value: $fromValue, format: .number)
                             .font(.title)
                             .textFieldStyle(.roundedBorder)
+                            .cornerRadius(40)
                             
                         Text("=")
                             .foregroundColor(.white)
                             .font(.title)
+                            .bold()
 
                         TextField("To value", value: $toValue, format: .number)
                             .font(.title)
@@ -36,9 +44,10 @@ struct ContentView: View {
                             .frame(maxWidth: .infinity)
 
                         Button {
-                            print("Swap")
+                            
                         } label: {
-                            Text("Swap")
+                            Image("arrows")
+                                .aspectRatio(1, contentMode: .fit)
                         }
 
                         Text("lb")
@@ -50,6 +59,41 @@ struct ContentView: View {
 
             }
             .background(Color.primaryColor)
+            
+            GeometryReader { geometry in
+                HStack(spacing: 0) {
+                    Picker("From", selection: $fromUnit) {
+                        ForEach(weightUnits, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                    .frame(width: geometry.size.width / 2)
+                    .clipped()
+                    
+                    Divider()
+                    
+                    Picker("To", selection: $toUnit) {
+                        ForEach(weightUnits, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                    .frame(width: geometry.size.width / 2)
+                    .clipped()
+                }
+                .overlay(
+                    RoundedRectangle(cornerRadius: 40)
+                        .stroke(Color.lightGray, lineWidth: 1)
+                )
+                .background(Color.white)
+                .cornerRadius(40)
+                .shadow(color: .lightGray, radius: 8.0, x: 0, y: 0)
+
+            }
+            .padding([.leading, .trailing])
+            .frame(height: 250)
+
             
             Spacer()
         }
