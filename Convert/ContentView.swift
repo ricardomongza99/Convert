@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @State private var fromValue = 0.0
-    @State private var toValue = 0.0
+    private var toValue: Double {
+        let temp = Measurement(value: fromValue, unit: fromUnit.unit)
+        return temp.converted(to: toUnit.unit).value
+    }
     
-    @State private var fromUnit = "Kilogram"
-    @State private var toUnit = "Pound"
+    let massUnits = ModelData().massUnits
     
-    let weightUnits = ["Milligram", "Gram", "Kilogram", "Ounce", "Pound", "Stone", "Tonne"]
+    @State private var fromUnit = ModelData().massUnits[1]
+    @State private var toUnit = ModelData().massUnits[5]
     
     
     var body: some View {
@@ -22,7 +26,8 @@ struct ContentView: View {
             Section {
                 VStack {
                     HStack(alignment: .center, spacing: 20){
-                        TextField("From value", value: $fromValue, format: .number)
+                        TextField("", value: $fromValue, format: .number)
+                            .multilineTextAlignment(.center)
                             .font(.system(size: 36))
                             .frame(height: 64)
                             .padding([.leading, .trailing], 26)
@@ -35,9 +40,10 @@ struct ContentView: View {
                             .font(.title)
                             .bold()
 
-                        TextField("To value", value: $toValue, format: .number)
+                        Text(toValue, format: .number)
                             .font(.system(size: 36))
                             .frame(height: 64)
+                            .frame(maxWidth: .infinity)
                             .padding([.leading, .trailing], 26)
                             .background(
                                 Capsule().fill(Color.white)
@@ -46,7 +52,7 @@ struct ContentView: View {
                     }
                     
                     HStack(alignment: .top, spacing: 0) {
-                        Text("kg")
+                        Text(fromUnit.symbol)
                             .font(.title)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
@@ -59,7 +65,7 @@ struct ContentView: View {
                                 .frame(width: 40, height: 40)
                         }
 
-                        Text("lb")
+                        Text(toUnit.symbol)
                             .font(.title)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
@@ -73,8 +79,8 @@ struct ContentView: View {
             GeometryReader { geometry in
                 HStack(spacing: 0) {
                     Picker("From", selection: $fromUnit) {
-                        ForEach(weightUnits, id: \.self) {
-                            Text($0)
+                        ForEach(massUnits, id: \.self) {
+                            Text($0.name)
                         }
                     }
                     .pickerStyle(.wheel)
@@ -84,8 +90,8 @@ struct ContentView: View {
                     Divider()
                     
                     Picker("To", selection: $toUnit) {
-                        ForEach(weightUnits, id: \.self) {
-                            Text($0)
+                        ForEach(massUnits, id: \.self) {
+                            Text($0.name)
                         }
                     }
                     .pickerStyle(.wheel)

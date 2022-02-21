@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C070F7627C312B400ACD490 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C070F7527C312B300ACD490 /* Units.swift */; };
+		8C070F7827C314AA00ACD490 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C070F7727C314AA00ACD490 /* ModelData.swift */; };
 		8CCA48C927BD71E9003C2B76 /* ConvertApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCA48C827BD71E9003C2B76 /* ConvertApp.swift */; };
 		8CCA48CB27BD71E9003C2B76 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCA48CA27BD71E9003C2B76 /* ContentView.swift */; };
 		8CCA48CD27BD71EA003C2B76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CCA48CC27BD71EA003C2B76 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C070F7527C312B300ACD490 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		8C070F7727C314AA00ACD490 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		8CCA48C527BD71E9003C2B76 /* Convert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Convert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CCA48C827BD71E9003C2B76 /* ConvertApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertApp.swift; sourceTree = "<group>"; };
 		8CCA48CA27BD71E9003C2B76 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +38,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C070F7427C312A800ACD490 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8C070F7727C314AA00ACD490 /* ModelData.swift */,
+				8C070F7527C312B300ACD490 /* Units.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8CCA48BC27BD71E9003C2B76 = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +68,7 @@
 			children = (
 				8CCA48C827BD71E9003C2B76 /* ConvertApp.swift */,
 				8CCA48CA27BD71E9003C2B76 /* ContentView.swift */,
+				8C070F7427C312A800ACD490 /* Models */,
 				8CCA48D627BD7623003C2B76 /* Extensions */,
 				8CCA48CC27BD71EA003C2B76 /* Assets.xcassets */,
 				8CCA48CE27BD71EA003C2B76 /* Preview Content */,
@@ -149,6 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CCA48CB27BD71E9003C2B76 /* ContentView.swift in Sources */,
+				8C070F7627C312B400ACD490 /* Units.swift in Sources */,
+				8C070F7827C314AA00ACD490 /* ModelData.swift in Sources */,
 				8CCA48D827BD7645003C2B76 /* Color+Extension.swift in Sources */,
 				8CCA48C927BD71E9003C2B76 /* ConvertApp.swift in Sources */,
 			);
