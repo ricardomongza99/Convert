@@ -20,6 +20,7 @@ struct ContentView: View {
     @State private var fromUnit = ModelData().massUnits[1]
     @State private var toUnit = ModelData().massUnits[5]
     
+    private let unitTypes = ModelData().unitTypes
     
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
@@ -76,6 +77,24 @@ struct ContentView: View {
 
             }
             .background(Color.primaryColor)
+            
+            VStack(spacing: 20) {
+                HStack(spacing: 20) {
+                    ForEach(0..<4) { i in
+                        Button(unitTypes[i].rawValue) {
+                            
+                        }
+                    }
+                }
+                
+                HStack(spacing: 20) {
+                    ForEach(4..<8) { i in
+                        Button(unitTypes[i].rawValue) {
+                            
+                        }
+                    }
+                }
+            }
             
 
             UnitsPicker(

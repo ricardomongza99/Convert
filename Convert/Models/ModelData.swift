@@ -8,6 +8,8 @@
 import Foundation
 
 final class ModelData {
+    let unitTypes: [UnitType] = [.length, .volume, .area, .temperature, .currecy, .mass, .storage, .time]
+    
     let massUnits: [Unit] = [
         Unit(name: "Tons", symbol: "t", unit: UnitMass.metricTons),
         Unit(name: "Kilograms", symbol: "kg", unit: UnitMass.kilograms),
