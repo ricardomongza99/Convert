@@ -34,6 +34,7 @@ struct ContentView: View {
                             .background(
                                 Capsule().fill(Color.white)
                             )
+                            .keyboardType(.decimalPad)
                             
                         Text("=")
                             .foregroundColor(.white)
