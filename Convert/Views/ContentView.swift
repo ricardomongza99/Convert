@@ -15,8 +15,8 @@ struct ContentView: View {
         return temp.converted(to: toUnit.unit).value.rounded(4)
     }
     
-    let massUnits = ModelData().massUnits
-    
+    @State private var units = ModelData().massUnits
+
     @State private var fromUnit = ModelData().massUnits[1]
     @State private var toUnit = ModelData().massUnits[5]
     
@@ -77,40 +77,12 @@ struct ContentView: View {
             }
             .background(Color.primaryColor)
             
-            GeometryReader { geometry in
-                HStack(spacing: 0) {
-                    Picker("From", selection: $fromUnit) {
-                        ForEach(massUnits, id: \.self) {
-                            Text($0.name)
-                        }
-                    }
-                    .pickerStyle(.wheel)
-                    .frame(width: geometry.size.width / 2)
-                    .clipped()
-                    
-                    Divider()
-                    
-                    Picker("To", selection: $toUnit) {
-                        ForEach(massUnits, id: \.self) {
-                            Text($0.name)
-                        }
-                    }
-                    .pickerStyle(.wheel)
-                    .frame(width: geometry.size.width / 2)
-                    .clipped()
-                }
-                .overlay(
-                    RoundedRectangle(cornerRadius: 40)
-                        .stroke(Color.lightGray, lineWidth: 1)
-                )
-                .background(Color.white)
-                .cornerRadius(40)
-                .shadow(color: .lightGray, radius: 8.0, x: 0, y: 0)
 
-            }
-            .padding([.leading, .trailing])
-            .frame(height: 250)
-
+            UnitsPicker(
+                units: $units,
+                fromUnit: $fromUnit,
+                toUnit: $toUnit
+            )
             
             Spacer()
         }
