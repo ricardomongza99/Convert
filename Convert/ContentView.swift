@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var fromValue = 0.0
     private var toValue: Double {
         let temp = Measurement(value: fromValue, unit: fromUnit.unit)
-        return temp.converted(to: toUnit.unit).value
+        return temp.converted(to: toUnit.unit).value.rounded(4)
     }
     
     let massUnits = ModelData().massUnits
@@ -28,9 +28,9 @@ struct ContentView: View {
                     HStack(alignment: .center, spacing: 20){
                         TextField("", value: $fromValue, format: .number)
                             .multilineTextAlignment(.center)
-                            .font(.system(size: 36))
+                            .font(.title)
                             .frame(height: 64)
-                            .padding([.leading, .trailing], 26)
+                            .padding([.leading, .trailing], 8)
                             .background(
                                 Capsule().fill(Color.white)
                             )
@@ -41,10 +41,10 @@ struct ContentView: View {
                             .bold()
 
                         Text(toValue, format: .number)
-                            .font(.system(size: 36))
+                            .font(.title)
                             .frame(height: 64)
                             .frame(maxWidth: .infinity)
-                            .padding([.leading, .trailing], 26)
+                            .padding([.leading, .trailing], 8)
                             .background(
                                 Capsule().fill(Color.white)
                             )
