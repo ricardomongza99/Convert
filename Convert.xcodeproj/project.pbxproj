@@ -16,6 +16,7 @@
 		8CCA48D827BD7645003C2B76 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCA48D727BD7645003C2B76 /* Color+Extension.swift */; };
 		8CD6429C27C450D6002B3307 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD6429B27C450D6002B3307 /* Double+Extension.swift */; };
 		8CD642A027C45520002B3307 /* UnitsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD6429F27C45520002B3307 /* UnitsPicker.swift */; };
+		8CD642A627C53E50002B3307 /* ConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD642A527C53E50002B3307 /* ConverterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		8CCA48D727BD7645003C2B76 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		8CD6429B27C450D6002B3307 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		8CD6429F27C45520002B3307 /* UnitsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsPicker.swift; sourceTree = "<group>"; };
+		8CD642A527C53E50002B3307 /* ConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				8CCA48C827BD71E9003C2B76 /* ConvertApp.swift */,
+				8CCA48CA27BD71E9003C2B76 /* ContentView.swift */,
 				8CD6429D27C454DF002B3307 /* Views */,
 				8C070F7427C312A800ACD490 /* Models */,
 				8CCA48D627BD7623003C2B76 /* Extensions */,
@@ -100,7 +103,7 @@
 		8CD6429D27C454DF002B3307 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8CCA48CA27BD71E9003C2B76 /* ContentView.swift */,
+				8CD642A527C53E50002B3307 /* ConverterView.swift */,
 				8CD6429F27C45520002B3307 /* UnitsPicker.swift */,
 			);
 			path = Views;
@@ -177,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CCA48CB27BD71E9003C2B76 /* ContentView.swift in Sources */,
+				8CD642A627C53E50002B3307 /* ConverterView.swift in Sources */,
 				8C070F7627C312B400ACD490 /* Units.swift in Sources */,
 				8CD6429C27C450D6002B3307 /* Double+Extension.swift in Sources */,
 				8C070F7827C314AA00ACD490 /* ModelData.swift in Sources */,
