@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UnitTypeButton: View {
     var unitType: UnitType
+    @Binding var isSelected: Bool
     
     var body: some View {
         Button {
@@ -17,10 +18,13 @@ struct UnitTypeButton: View {
             Text(unitType.rawValue)
                 .font(.callout)
                 .frame(width: 80, height: 40)
-                .foregroundColor(.primaryColor)
-                .overlay(
+                .foregroundColor(isSelected ? .white : .primaryColor)
+                .overlay (
                     RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .stroke(Color.primaryColor, lineWidth: 2)
+                        .stroke(isSelected ? .clear : Color.primaryColor, lineWidth: 2)
+                ).background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(isSelected ? Color.primaryColor : .clear)
                 )
         }
 
@@ -29,6 +33,6 @@ struct UnitTypeButton: View {
 
 struct UnitTypeButton_Previews: PreviewProvider {
     static var previews: some View {
-        UnitTypeButton(unitType: .currency)
+        UnitTypeButton(unitType: .currency, isSelected: .constant(true))
     }
 }

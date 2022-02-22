@@ -24,13 +24,13 @@ struct ContentView: View {
             VStack {
                 HStack {
                     ForEach(0..<4) { i in
-                        UnitTypeButton(unitType: unitTypes[i])
+                        UnitTypeButton(unitType: unitTypes[i], isSelected: .constant(false))
                     }
                 }
                 
                 HStack {
                     ForEach(4..<8) { i in
-                        UnitTypeButton(unitType: unitTypes[i])
+                        UnitTypeButton(unitType: unitTypes[i], isSelected: .constant(false))
                     }
                 }
             }
