@@ -12,7 +12,7 @@ enum UnitType: String {
     case volume = "Volume"
     case area = "Area"
     case temperature = "Temp"
-    case currecy = "Currency"
+    case currency = "Currency"
     case mass = "Mass"
     case storage = "Storage"
     case time = "Time"

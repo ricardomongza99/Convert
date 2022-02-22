@@ -21,20 +21,16 @@ struct ContentView: View {
             
             ConverterView(fromUnit: $fromUnit, toUnit: $toUnit)
             
-            VStack(spacing: 20) {
-                HStack(spacing: 20) {
+            VStack {
+                HStack {
                     ForEach(0..<4) { i in
-                        Button(unitTypes[i].rawValue) {
-                            
-                        }
+                        UnitTypeButton(unitType: unitTypes[i])
                     }
                 }
                 
-                HStack(spacing: 20) {
+                HStack {
                     ForEach(4..<8) { i in
-                        Button(unitTypes[i].rawValue) {
-                            
-                        }
+                        UnitTypeButton(unitType: unitTypes[i])
                     }
                 }
             }
