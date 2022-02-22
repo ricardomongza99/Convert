@@ -15,6 +15,11 @@ struct ContentView: View {
     @State private var toUnit = ModelData().massUnits[5]
     
     private let unitTypes = ModelData().unitTypes
+            
+    @State private var currentUnitType: UnitType = .length
+    
+
+
     
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
@@ -24,13 +29,13 @@ struct ContentView: View {
             VStack {
                 HStack {
                     ForEach(0..<4) { i in
-                        UnitTypeButton(unitType: unitTypes[i], isSelected: .constant(false))
+                        UnitTypeButton(unitType: unitTypes[i], currentUnitType: $currentUnitType)
                     }
                 }
                 
                 HStack {
                     ForEach(4..<8) { i in
-                        UnitTypeButton(unitType: unitTypes[i], isSelected: .constant(false))
+                        UnitTypeButton(unitType: unitTypes[i], currentUnitType: $currentUnitType)
                     }
                 }
             }

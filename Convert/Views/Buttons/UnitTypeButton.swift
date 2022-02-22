@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct UnitTypeButton: View {
+    
     var unitType: UnitType
-    @Binding var isSelected: Bool
+    @Binding var currentUnitType: UnitType
+    
+    var isSelected: Bool {
+        return unitType == currentUnitType
+    }
     
     var body: some View {
         Button {
-            
+            currentUnitType = unitType
         } label: {
             Text(unitType.rawValue)
                 .font(.callout)
@@ -33,6 +38,6 @@ struct UnitTypeButton: View {
 
 struct UnitTypeButton_Previews: PreviewProvider {
     static var previews: some View {
-        UnitTypeButton(unitType: .currency, isSelected: .constant(true))
+        UnitTypeButton(unitType: .length, currentUnitType: .constant(.length))
     }
 }
