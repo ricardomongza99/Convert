@@ -8,14 +8,14 @@
 import Foundation
 
 enum UnitType: String {
-    case length = "Length"
-    case volume = "Volume"
-    case area = "Area"
-    case temperature = "Temp"
-    case currency = "Currency"
-    case mass = "Mass"
-    case storage = "Storage"
-    case time = "Time"
+    case length = "📏"
+    case volume = "💧"
+    case area = "🖼"
+    case temperature = "🌡"
+    case currency = "💵"
+    case mass = "⚖️"
+    case storage = "💾"
+    case time = "⏱"
 }
 
 struct Unit: Hashable {

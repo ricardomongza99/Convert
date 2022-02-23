@@ -8,7 +8,7 @@
 import Foundation
 
 final class ModelData {
-    let unitTypes: [UnitType] = [.length, .volume, .area, .temperature, .currency, .mass, .storage, .time]
+    let unitTypes: [UnitType] = [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time]
     
     let lengthUnits: [Unit] = [
         Unit(name: "Kilometers", symbol: "km", unit: UnitLength.kilometers),
