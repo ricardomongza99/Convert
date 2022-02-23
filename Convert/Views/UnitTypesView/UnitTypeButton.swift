@@ -19,7 +19,7 @@ struct UnitTypeButton: View {
         } label: {
             Text(unitType.rawValue)
                 .font(.callout)
-                .frame(width: 60, height: 40)
+                .padding()
                 .foregroundColor(isSelected ? .white : .primaryColor)
                 .background(isSelected ? Color.lightGray : Color.white)
                 .clipShape(Capsule(style: .continuous))

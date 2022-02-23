@@ -14,26 +14,17 @@ struct UnitTypesView: View {
     var changeUnits: (_ unitType: UnitType) -> Void
 
     var body: some View {
-        VStack {
+        ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(0..<4) { i in
+                ForEach(unitTypes, id: \.self) { unitType in
                     UnitTypeButton(
-                        unitType: unitTypes[i],
-                        isSelected: currentUnitType == unitTypes[i],
+                        unitType: unitType,
+                        isSelected: currentUnitType == unitType,
                         changeUnits: changeUnits
                     )
                 }
             }
-            
-            HStack {
-                ForEach(4..<8) { i in
-                    UnitTypeButton(
-                        unitType: unitTypes[i],
-                        isSelected: currentUnitType == unitTypes[i],
-                        changeUnits: changeUnits
-                    )
-                }
-            }
+            .padding()
         }
     }
 }

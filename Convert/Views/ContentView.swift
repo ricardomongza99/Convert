@@ -19,7 +19,7 @@ struct ContentView: View {
     @State private var currentUnitType: UnitType = .mass
     
     var body: some View {
-        VStack(alignment: .center, spacing: 20) {
+        VStack(alignment: .center, spacing: 0) {
             
             ConverterView(
                 fromUnit: $fromUnit,
