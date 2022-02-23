@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State private var units = ModelData().massUnits
+    @State private var units = ConverterViewModel().massUnits
 
-    @State private var fromUnit = ModelData().massUnits[1]
-    @State private var toUnit = ModelData().massUnits[5]
+    @State private var fromUnit = ConverterViewModel().massUnits[1]
+    @State private var toUnit = ConverterViewModel().massUnits[5]
     
-    private let unitTypes = ModelData().unitTypes
+    private let unitTypes = ConverterViewModel().unitTypes
             
     @State private var currentUnitType: UnitType = .mass
     
@@ -62,21 +62,21 @@ struct ContentView: View {
         
         switch unitType {
         case .length:
-            units = ModelData().lengthUnits
+            units = ConverterViewModel().lengthUnits
         case .volume:
-            units = ModelData().volumeUnits
+            units = ConverterViewModel().volumeUnits
         case .area:
-            units = ModelData().areaUnits
+            units = ConverterViewModel().areaUnits
         case .temperature:
-            units = ModelData().temperatureUnits
+            units = ConverterViewModel().temperatureUnits
         case .currency:
-            units = ModelData().lengthUnits
+            units = ConverterViewModel().lengthUnits
         case .mass:
-            units = ModelData().massUnits
+            units = ConverterViewModel().massUnits
         case .storage:
-            units = ModelData().storageUnits
+            units = ConverterViewModel().storageUnits
         case .time:
-            units = ModelData().timeUnits
+            units = ConverterViewModel().timeUnits
         }
         
         fromUnit = units[0]

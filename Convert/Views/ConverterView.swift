@@ -76,7 +76,7 @@ struct ConverterView: View {
 }
 
 struct ConverterView_Previews: PreviewProvider {
-    static let massUnits = ModelData().massUnits
+    static let massUnits = ConverterViewModel().massUnits
     static var previews: some View {
         ConverterView(
             fromUnit: .constant(massUnits[0]),

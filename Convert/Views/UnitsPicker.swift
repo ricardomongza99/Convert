@@ -63,7 +63,7 @@ struct UnitsPicker: View {
 }
 
 struct UnitsPicker_Previews: PreviewProvider {
-    static let massUnits = ModelData().massUnits
+    static let massUnits = ConverterViewModel().massUnits
     static var previews: some View {
         UnitsPicker(
             units: .constant(massUnits),
