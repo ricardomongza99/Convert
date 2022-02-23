@@ -23,28 +23,7 @@ struct ContentView: View {
             
             ConverterView(fromUnit: $fromUnit, toUnit: $toUnit)
             
-            VStack {
-                HStack {
-                    ForEach(0..<4) { i in
-                        UnitTypeButton(
-                            unitType: unitTypes[i],
-                            isSelected: currentUnitType == unitTypes[i],
-                            changeUnits: changeUnits
-                        )
-                    }
-                }
-                
-                HStack {
-                    ForEach(4..<8) { i in
-                        UnitTypeButton(
-                            unitType: unitTypes[i],
-                            isSelected: currentUnitType == unitTypes[i],
-                            changeUnits: changeUnits
-                        )
-                    }
-                }
-            }
-            
+            UnitTypesView(currentUnitType: currentUnitType, unitTypes: unitTypes, changeUnits: changeUnits)
 
             UnitsPickerView(
                 units: $units,
@@ -56,6 +35,7 @@ struct ContentView: View {
         }
     }
     
+        
     /// Changes `currentUnitType` and its Pickers
     func changeUnits(unitType: UnitType) {
         currentUnitType = unitType
