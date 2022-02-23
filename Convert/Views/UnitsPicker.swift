@@ -23,6 +23,12 @@ struct UnitsPicker: View {
                 .pickerStyle(.wheel)
                 .frame(width: geometry.size.width / 2)
                 .clipped()
+                .animation(.easeInOut, value: fromUnit)
+                .onChange(of: fromUnit) { [fromUnit] newValue in
+                    if newValue == toUnit {
+                        toUnit = fromUnit
+                    }
+                }
                 
                 Divider()
                 
@@ -34,6 +40,13 @@ struct UnitsPicker: View {
                 .pickerStyle(.wheel)
                 .frame(width: geometry.size.width / 2)
                 .clipped()
+                .animation(.easeInOut, value: toUnit)
+                .onChange(of: toUnit) { [toUnit] newValue in
+                    if newValue == fromUnit {
+                        fromUnit = toUnit
+                    }
+                }
+
             }
             .overlay(
                 RoundedRectangle(cornerRadius: 40)
