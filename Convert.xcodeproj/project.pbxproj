@@ -57,13 +57,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		8C77826A27C6A14E008084D2 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		8CCA48BC27BD71E9003C2B76 = {
 			isa = PBXGroup;
 			children = (
@@ -113,7 +106,6 @@
 		8CD6429D27C454DF002B3307 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8C77826A27C6A14E008084D2 /* Components */,
 				8CCA48CA27BD71E9003C2B76 /* ContentView.swift */,
 				8CD642AA27C69EC8002B3307 /* ConverterView */,
 				8CD642AB27C69EDC002B3307 /* UnitTypesView */,
