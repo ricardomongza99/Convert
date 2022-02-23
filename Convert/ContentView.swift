@@ -18,9 +18,6 @@ struct ContentView: View {
             
     @State private var currentUnitType: UnitType = .length
     
-
-
-    
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             
@@ -29,13 +26,21 @@ struct ContentView: View {
             VStack {
                 HStack {
                     ForEach(0..<4) { i in
-                        UnitTypeButton(unitType: unitTypes[i], currentUnitType: $currentUnitType)
+                        UnitTypeButton(
+                            unitType: unitTypes[i],
+                            isSelected: currentUnitType == unitTypes[i],
+                            changeUnits: changeUnits
+                        )
                     }
                 }
                 
                 HStack {
                     ForEach(4..<8) { i in
-                        UnitTypeButton(unitType: unitTypes[i], currentUnitType: $currentUnitType)
+                        UnitTypeButton(
+                            unitType: unitTypes[i],
+                            isSelected: currentUnitType == unitTypes[i],
+                            changeUnits: changeUnits
+                        )
                     }
                 }
             }
@@ -49,6 +54,33 @@ struct ContentView: View {
             
             Spacer()
         }
+    }
+    
+    /// Changes `currentUnitType` and its Pickers
+    func changeUnits(unitType: UnitType) {
+        currentUnitType = unitType
+        
+        switch unitType {
+        case .length:
+            units = ModelData().lengthUnits
+        case .volume:
+            units = ModelData().volumeUnits
+        case .area:
+            units = ModelData().areaUnits
+        case .temperature:
+            units = ModelData().temperatureUnits
+        case .currency:
+            units = ModelData().lengthUnits
+        case .mass:
+            units = ModelData().massUnits
+        case .storage:
+            units = ModelData().storageUnits
+        case .time:
+            units = ModelData().timeUnits
+        }
+        
+        fromUnit = units[0]
+        toUnit = units[1]
     }
 }
 

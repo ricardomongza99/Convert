@@ -10,15 +10,12 @@ import SwiftUI
 struct UnitTypeButton: View {
     
     var unitType: UnitType
-    @Binding var currentUnitType: UnitType
-    
-    var isSelected: Bool {
-        return unitType == currentUnitType
-    }
+    var isSelected: Bool
+    var changeUnits: (_ unitType: UnitType) -> Void
     
     var body: some View {
         Button {
-            currentUnitType = unitType
+            changeUnits(unitType)
         } label: {
             Text(unitType.rawValue)
                 .font(.callout)
@@ -38,6 +35,6 @@ struct UnitTypeButton: View {
 
 struct UnitTypeButton_Previews: PreviewProvider {
     static var previews: some View {
-        UnitTypeButton(unitType: .length, currentUnitType: .constant(.length))
+        UnitTypeButton(unitType: .length, isSelected: true) { _ in }
     }
 }
