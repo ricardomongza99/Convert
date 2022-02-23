@@ -23,7 +23,8 @@ struct ContentView: View {
             
             ConverterView(
                 fromUnit: $fromUnit,
-                toUnit: $toUnit
+                toUnit: $toUnit,
+                swapUnits: swapUnits
             )
             
             UnitTypesView(
@@ -42,6 +43,10 @@ struct ContentView: View {
         }
     }
     
+    /// Swaps units
+    func swapUnits() {
+        swap(&fromUnit, &toUnit)
+    }
         
     /// Changes `currentUnitType` and its Pickers
     func changeUnits(unitType: UnitType) {

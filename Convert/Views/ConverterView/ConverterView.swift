@@ -11,6 +11,7 @@ struct ConverterView: View {
     
     @Binding var fromUnit: Unit
     @Binding var toUnit: Unit
+    var swapUnits: () -> Void
     
     @State private var fromValue = 0.0
     private var toValue: Double {
@@ -54,9 +55,7 @@ struct ConverterView: View {
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
 
-                    Button {
-                        
-                    } label: {
+                    Button(action: swapUnits) {
                         Image("arrows")
                             .aspectRatio(1, contentMode: .fit)
                             .frame(width: 40, height: 40)
@@ -80,6 +79,8 @@ struct ConverterView_Previews: PreviewProvider {
     static var previews: some View {
         ConverterView(
             fromUnit: .constant(massUnits[0]),
-            toUnit: .constant(massUnits[4]))
+            toUnit: .constant(massUnits[4]),
+            swapUnits: {}
+        )
     }
 }
