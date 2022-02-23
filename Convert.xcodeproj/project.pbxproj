@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C070F7627C312B400ACD490 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C070F7527C312B300ACD490 /* Units.swift */; };
-		8C070F7827C314AA00ACD490 /* ConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C070F7727C314AA00ACD490 /* ConverterViewModel.swift */; };
+		8C070F7827C314AA00ACD490 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C070F7727C314AA00ACD490 /* ViewModel.swift */; };
 		8CCA48C927BD71E9003C2B76 /* ConvertApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCA48C827BD71E9003C2B76 /* ConvertApp.swift */; };
 		8CCA48CB27BD71E9003C2B76 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCA48CA27BD71E9003C2B76 /* ContentView.swift */; };
 		8CCA48CD27BD71EA003C2B76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CCA48CC27BD71EA003C2B76 /* Assets.xcassets */; };
@@ -22,7 +22,7 @@
 
 /* Begin PBXFileReference section */
 		8C070F7527C312B300ACD490 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
-		8C070F7727C314AA00ACD490 /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModel.swift; sourceTree = "<group>"; };
+		8C070F7727C314AA00ACD490 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8CCA48C527BD71E9003C2B76 /* Convert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Convert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CCA48C827BD71E9003C2B76 /* ConvertApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertApp.swift; sourceTree = "<group>"; };
 		8CCA48CA27BD71E9003C2B76 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		8C070F7427C312A800ACD490 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8C070F7727C314AA00ACD490 /* ConverterViewModel.swift */,
+				8C070F7727C314AA00ACD490 /* ViewModel.swift */,
 				8C070F7527C312B300ACD490 /* Units.swift */,
 			);
 			path = Models;
@@ -75,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				8CCA48C827BD71E9003C2B76 /* ConvertApp.swift */,
-				8CCA48CA27BD71E9003C2B76 /* ContentView.swift */,
 				8CD6429D27C454DF002B3307 /* Views */,
 				8C070F7427C312A800ACD490 /* Models */,
 				8CCA48D627BD7623003C2B76 /* Extensions */,
@@ -105,19 +104,36 @@
 		8CD6429D27C454DF002B3307 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8CD642A527C53E50002B3307 /* ConverterView.swift */,
-				8CD6429F27C45520002B3307 /* UnitsPicker.swift */,
-				8CD642A727C54D4A002B3307 /* Buttons */,
+				8CCA48CA27BD71E9003C2B76 /* ContentView.swift */,
+				8CD642AA27C69EC8002B3307 /* ConverterView */,
+				8CD642AB27C69EDC002B3307 /* UnitTypesView */,
+				8CD642AC27C69EEE002B3307 /* UnitsPickerView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		8CD642A727C54D4A002B3307 /* Buttons */ = {
+		8CD642AA27C69EC8002B3307 /* ConverterView */ = {
+			isa = PBXGroup;
+			children = (
+				8CD642A527C53E50002B3307 /* ConverterView.swift */,
+			);
+			path = ConverterView;
+			sourceTree = "<group>";
+		};
+		8CD642AB27C69EDC002B3307 /* UnitTypesView */ = {
 			isa = PBXGroup;
 			children = (
 				8CD642A827C54D66002B3307 /* UnitTypeButton.swift */,
 			);
-			path = Buttons;
+			path = UnitTypesView;
+			sourceTree = "<group>";
+		};
+		8CD642AC27C69EEE002B3307 /* UnitsPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				8CD6429F27C45520002B3307 /* UnitsPicker.swift */,
+			);
+			path = UnitsPickerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +210,7 @@
 				8CD642A627C53E50002B3307 /* ConverterView.swift in Sources */,
 				8C070F7627C312B400ACD490 /* Units.swift in Sources */,
 				8CD6429C27C450D6002B3307 /* Double+Extension.swift in Sources */,
-				8C070F7827C314AA00ACD490 /* ConverterViewModel.swift in Sources */,
+				8C070F7827C314AA00ACD490 /* ViewModel.swift in Sources */,
 				8CCA48D827BD7645003C2B76 /* Color+Extension.swift in Sources */,
 				8CD642A927C54D66002B3307 /* UnitTypeButton.swift in Sources */,
 				8CCA48C927BD71E9003C2B76 /* ConvertApp.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ConverterViewModel {
+final class ViewModel {
     let unitTypes: [UnitType] = [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time]
     
     let lengthUnits: [Unit] = [
