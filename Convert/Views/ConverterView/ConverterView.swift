@@ -13,17 +13,21 @@ struct ConverterView: View {
     @Binding var toUnit: Unit
     var swapUnits: () -> Void
     
-    @State private var fromValue = 0.0
+    @State private var fromValue = "0"
     private var toValue: Double {
-        let temp = Measurement(value: fromValue, unit: fromUnit.unit)
-        return temp.converted(to: toUnit.unit).value.rounded(4)
+        if let value = Double(fromValue) {
+            let temp = Measurement(value: value, unit: fromUnit.unit)
+            return temp.converted(to: toUnit.unit).value.rounded(4)
+        } else {
+            return 0
+        }
     }
     
     var body: some View {
         Section {
             VStack {
                 HStack(alignment: .center, spacing: 20){
-                    TextField("", value: $fromValue, format: .number)
+                    TextField("", text: $fromValue)
                         .multilineTextAlignment(.center)
                         .font(.title)
                         .frame(height: 64)
@@ -32,6 +36,9 @@ struct ConverterView: View {
                             Capsule().fill(Color.white)
                         )
                         .keyboardType(.decimalPad)
+                        .onChange(of: fromValue) { [fromValue] newValue in
+                            print(newValue)
+                        }
                         
                     Text("=")
                         .foregroundColor(.white)
