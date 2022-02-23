@@ -21,9 +21,16 @@ struct ContentView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             
-            ConverterView(fromUnit: $fromUnit, toUnit: $toUnit)
+            ConverterView(
+                fromUnit: $fromUnit,
+                toUnit: $toUnit
+            )
             
-            UnitTypesView(currentUnitType: currentUnitType, unitTypes: unitTypes, changeUnits: changeUnits)
+            UnitTypesView(
+                currentUnitType: currentUnitType,
+                unitTypes: unitTypes,
+                changeUnits: changeUnits
+            )
 
             UnitsPickerView(
                 units: $units,
