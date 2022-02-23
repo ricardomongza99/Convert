@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UnitsPicker: View {
+struct UnitsPickerView: View {
     @Binding var units: [Unit]
     @Binding var fromUnit: Unit
     @Binding var toUnit: Unit
@@ -62,10 +62,10 @@ struct UnitsPicker: View {
     }
 }
 
-struct UnitsPicker_Previews: PreviewProvider {
+struct UnitsPickerView_Previews: PreviewProvider {
     static let massUnits = ViewModel().massUnits
     static var previews: some View {
-        UnitsPicker(
+        UnitsPickerView(
             units: .constant(massUnits),
             fromUnit: .constant(massUnits[0]),
             toUnit: .constant(massUnits[4])

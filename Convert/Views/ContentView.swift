@@ -46,7 +46,7 @@ struct ContentView: View {
             }
             
 
-            UnitsPicker(
+            UnitsPickerView(
                 units: $units,
                 fromUnit: $fromUnit,
                 toUnit: $toUnit
