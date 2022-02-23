@@ -16,7 +16,7 @@ struct ContentView: View {
     
     private let unitTypes = ModelData().unitTypes
             
-    @State private var currentUnitType: UnitType = .length
+    @State private var currentUnitType: UnitType = .mass
     
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
