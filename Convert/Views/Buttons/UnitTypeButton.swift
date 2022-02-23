@@ -19,15 +19,11 @@ struct UnitTypeButton: View {
         } label: {
             Text(unitType.rawValue)
                 .font(.callout)
-                .frame(width: 80, height: 40)
+                .frame(width: 60, height: 40)
                 .foregroundColor(isSelected ? .white : .primaryColor)
-                .overlay (
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .stroke(isSelected ? .clear : Color.primaryColor, lineWidth: 2)
-                ).background(
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(isSelected ? Color.primaryColor : .clear)
-                )
+                .background(isSelected ? Color.lightGray : Color.white)
+                .clipShape(Capsule(style: .continuous))
+                .shadow(color: .lightGray, radius: 8.0, x: 0, y: 0)
         }
 
     }
