@@ -36,9 +36,6 @@ struct ConverterView: View {
                             Capsule().fill(Color.white)
                         )
                         .keyboardType(.decimalPad)
-                        .onChange(of: fromValue) { [fromValue] newValue in
-                            print(newValue)
-                        }
                         
                     Text("=")
                         .foregroundColor(.white)
@@ -57,10 +54,7 @@ struct ConverterView: View {
                 }
                 
                 HStack(alignment: .top, spacing: 0) {
-                    Text(fromUnit.symbol)
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
+                    unitText(text: fromUnit.symbol)
 
                     Button(action: swapUnits) {
                         Image("arrows")
@@ -68,16 +62,23 @@ struct ConverterView: View {
                             .frame(width: 40, height: 40)
                     }
 
-                    Text(toUnit.symbol)
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
+                    unitText(text: toUnit.symbol)
                 }
             }
             .padding()
 
         }
         .background(Color.primaryColor)
+    }
+    
+    // MARK: - COMPONENTS
+    
+    @ViewBuilder
+    private func unitText(text: String) -> some View {
+        Text(text)
+            .font(.title)
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
     }
 }
 
