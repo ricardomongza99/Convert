@@ -41,6 +41,9 @@ struct ContentView: View {
             
             Spacer()
         }
+        .onTapGesture {
+            self.hideKeyboard()
+        }
     }
     
     /// Swaps units
