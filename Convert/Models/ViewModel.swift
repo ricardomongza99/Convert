@@ -8,6 +8,17 @@
 import SwiftUI
 import Combine
 
+enum UnitType: String {
+    case length = "📏 Length"
+    case volume = "💧 Volume"
+    case area = "🖼 Area"
+    case temperature = "🌡 Temp."
+    case currency = "💵 Currency"
+    case mass = "⚖️ Mass"
+    case storage = "💾 Storage"
+    case time = "⏱ Time"
+}
+
 final class ViewModel: ObservableObject {
     
     @Published var fromUnit: Unit {
