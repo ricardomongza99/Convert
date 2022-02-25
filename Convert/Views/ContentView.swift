@@ -65,7 +65,7 @@ struct ContentView: View {
         case .temperature:
             units = ViewModel().temperatureUnits
         case .currency:
-            units = ViewModel().lengthUnits
+            units = ViewModel().currencyUnits
         case .mass:
             units = ViewModel().massUnits
         case .storage:

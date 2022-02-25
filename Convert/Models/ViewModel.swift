@@ -82,4 +82,10 @@ final class ViewModel {
         Unit(name: "Minutes", symbol: "min", unit: UnitDuration.minutes),
         Unit(name: "Hours", symbol: "hr", unit: UnitDuration.hours),
     ]
+    
+    let currencyUnits: [Unit] = [
+        Unit(name: "Mexican Peso", symbol: "MXN", unit: UnitCurrency.mexicanPeso),
+        Unit(name: "United States Dollar", symbol: "USD", unit: UnitCurrency.unitedStatesDollar),
+        Unit(name: "Euro", symbol: "EUR", unit: UnitCurrency.euro)
+    ]
 }

@@ -54,7 +54,7 @@ struct ConverterView: View {
                 }
                 
                 HStack(alignment: .top, spacing: 0) {
-                    unitText(text: fromUnit.symbol)
+                    unitText(text: fromUnit.unit.symbol)
 
                     Button(action: swapUnits) {
                         Image("arrows")
@@ -62,7 +62,7 @@ struct ConverterView: View {
                             .frame(width: 40, height: 40)
                     }
 
-                    unitText(text: toUnit.symbol)
+                    unitText(text: toUnit.unit.symbol)
                 }
             }
             .padding()
