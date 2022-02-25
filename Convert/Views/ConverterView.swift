@@ -9,15 +9,13 @@ import SwiftUI
 
 struct ConverterView: View {
     
-    @Binding var fromUnit: Unit
-    @Binding var toUnit: Unit
-    var swapUnits: () -> Void
+    @EnvironmentObject var viewModel: ViewModel
     
     @State private var fromValue = "0"
     private var toValue: Double {
         if let value = Double(fromValue) {
-            let temp = Measurement(value: value, unit: fromUnit.unit)
-            return temp.converted(to: toUnit.unit).value.rounded(4)
+            let temp = Measurement(value: value, unit: viewModel.fromUnit.unit)
+            return temp.converted(to: viewModel.toUnit.unit).value.rounded(4)
         } else {
             return 0
         }
@@ -54,15 +52,15 @@ struct ConverterView: View {
                 }
                 
                 HStack(alignment: .top, spacing: 0) {
-                    unitText(text: fromUnit.unit.symbol)
+                    unitText(text: viewModel.fromUnit.unit.symbol)
 
-                    Button(action: swapUnits) {
+                    Button(action: viewModel.swapUnits) {
                         Image("arrows")
                             .aspectRatio(1, contentMode: .fit)
                             .frame(width: 40, height: 40)
                     }
 
-                    unitText(text: toUnit.unit.symbol)
+                    unitText(text: viewModel.toUnit.unit.symbol)
                 }
             }
             .padding()
@@ -83,12 +81,8 @@ struct ConverterView: View {
 }
 
 struct ConverterView_Previews: PreviewProvider {
-    static let massUnits = ViewModel().massUnits
     static var previews: some View {
-        ConverterView(
-            fromUnit: .constant(massUnits[0]),
-            toUnit: .constant(massUnits[4]),
-            swapUnits: {}
-        )
+        ConverterView()
+            .environmentObject(ViewModel())
     }
 }

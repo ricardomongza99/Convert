@@ -8,44 +8,32 @@
 import SwiftUI
 
 struct UnitsPickerView: View {
-    @Binding var units: [Unit]
-    @Binding var fromUnit: Unit
-    @Binding var toUnit: Unit
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
-                Picker("From", selection: $fromUnit) {
-                    ForEach(units, id: \.self) {
+                Picker("From", selection: $viewModel.fromUnit) {
+                    ForEach(viewModel.currentUnits, id: \.self) {
                         Text($0.name)
                     }
                 }
                 .pickerStyle(.wheel)
                 .frame(width: geometry.size.width / 2)
                 .clipped()
-                .animation(.easeInOut, value: fromUnit)
-                .onChange(of: fromUnit) { [fromUnit] newValue in
-                    if newValue == toUnit {
-                        toUnit = fromUnit
-                    }
-                }
+                .animation(.easeInOut, value: viewModel.fromUnit)
                 
                 Divider()
                 
-                Picker("To", selection: $toUnit) {
-                    ForEach(units, id: \.self) {
+                Picker("To", selection: $viewModel.toUnit) {
+                    ForEach(viewModel.currentUnits, id: \.self) {
                         Text($0.name)
                     }
                 }
                 .pickerStyle(.wheel)
                 .frame(width: geometry.size.width / 2)
                 .clipped()
-                .animation(.easeInOut, value: toUnit)
-                .onChange(of: toUnit) { [toUnit] newValue in
-                    if newValue == fromUnit {
-                        fromUnit = toUnit
-                    }
-                }
+                .animation(.easeInOut, value: viewModel.toUnit)
 
             }
             .overlay(
@@ -65,10 +53,7 @@ struct UnitsPickerView: View {
 struct UnitsPickerView_Previews: PreviewProvider {
     static let massUnits = ViewModel().massUnits
     static var previews: some View {
-        UnitsPickerView(
-            units: .constant(massUnits),
-            fromUnit: .constant(massUnits[0]),
-            toUnit: .constant(massUnits[4])
-        )
+        UnitsPickerView()
+            .environmentObject(ViewModel())
     }
 }

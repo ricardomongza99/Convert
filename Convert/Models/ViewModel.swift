@@ -5,9 +5,59 @@
 //  Created by Ricardo Montemayor on 20/02/22.
 //
 
-import Foundation
+import SwiftUI
+import Combine
 
-final class ViewModel {
+final class ViewModel: ObservableObject {
+    
+    @Published var fromUnit: Unit {
+        didSet {
+            if fromUnit == toUnit {
+                toUnit = oldValue
+            }
+        }
+    }
+    
+    @Published var toUnit: Unit {
+        didSet {
+            if fromUnit == toUnit {
+                fromUnit = oldValue
+            }
+        }
+    }
+    
+    @Published var currentUnits = [Unit]()
+
+    @Published var currentUnitType: UnitType = .mass {
+        didSet {
+            switch currentUnitType {
+            case .length:
+                currentUnits = lengthUnits
+            case .volume:
+                currentUnits = volumeUnits
+            case .area:
+                currentUnits = areaUnits
+            case .temperature:
+                currentUnits = temperatureUnits
+            case .currency:
+                fetchCurrencies()
+                currentUnits = currencyUnits
+            case .mass:
+                currentUnits = massUnits
+            case .storage:
+                currentUnits = storageUnits
+            case .time:
+                currentUnits = timeUnits
+            }
+            
+            // TODO: Change indexes
+            if currentUnits.count > 2 {
+                fromUnit = currentUnits[0]
+                toUnit = currentUnits[2]
+            }
+        }
+    }
+    
     let unitTypes: [UnitType] = [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time]
     
     let lengthUnits: [Unit] = [
@@ -83,9 +133,43 @@ final class ViewModel {
         Unit(name: "Hours", unit: UnitDuration.hours),
     ]
     
-    let currencyUnits: [Unit] = [
-        Unit(name: "Mexican Peso", unit: UnitCurrency.mexicanPeso),
-        Unit(name: "United States Dollar", unit: UnitCurrency.unitedStatesDollar),
-        Unit(name: "Euro", unit: UnitCurrency.euro)
+    var currencyUnits: [Unit] = [
+        Unit(name: "EUR", unit: UnitCurrency.euro)
     ]
+    
+    init() {
+        self.currentUnits = massUnits
+        self.fromUnit = massUnits[0]
+        self.toUnit = massUnits[1]
+    }
+    
+    private func fetchCurrencies() {
+        guard let url = URL(string: "https://api.frankfurter.app/latest") else { return }
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                print("Could not fetch latest currency data: \(error)")
+            }
+            
+            if let data = data {
+                let json = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as AnyObject
+                if let rates = json["rates"] as? [String: Double] {
+                    var currencies = [Unit]()
+                    for (key, value) in rates {
+                        let unit = UnitCurrency(symbol: key, converter: UnitConverterLinear(coefficient: 1/value))
+                        currencies.append(Unit(name: key, unit: unit))
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.currencyUnits = currencies
+                    }
+                }
+            }
+        }
+        .resume()
+    }
+        
+    func swapUnits() {
+        
+    }
+
 }
