@@ -11,81 +11,81 @@ final class ViewModel {
     let unitTypes: [UnitType] = [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time]
     
     let lengthUnits: [Unit] = [
-        Unit(name: "Kilometers", symbol: "km", unit: UnitLength.kilometers),
-        Unit(name: "Meters", symbol: "m", unit: UnitLength.meters),
-        Unit(name: "Centimeters", symbol: "cm", unit: UnitLength.centimeters),
-        Unit(name: "Millimeters", symbol: "mm", unit: UnitLength.millimeters),
-        Unit(name: "Inches", symbol: "in", unit: UnitLength.inches),
-        Unit(name: "Feet", symbol: "ft", unit: UnitLength.feet),
-        Unit(name: "Yards", symbol: "yd", unit: UnitLength.yards),
-        Unit(name: "Miles", symbol: "mi", unit: UnitLength.miles)
+        Unit(name: "Kilometers", unit: UnitLength.kilometers),
+        Unit(name: "Meters", unit: UnitLength.meters),
+        Unit(name: "Centimeters", unit: UnitLength.centimeters),
+        Unit(name: "Millimeters", unit: UnitLength.millimeters),
+        Unit(name: "Inches", unit: UnitLength.inches),
+        Unit(name: "Feet", unit: UnitLength.feet),
+        Unit(name: "Yards", unit: UnitLength.yards),
+        Unit(name: "Miles", unit: UnitLength.miles)
     ]
     
     let volumeUnits: [Unit] = [
-        Unit(name: "Liters", symbol: "L", unit: UnitVolume.liters),
-        Unit(name: "Milliliters", symbol: "mL", unit: UnitVolume.milliliters),
-        Unit(name: "Cubic Meters", symbol: "m³", unit: UnitVolume.cubicMeters),
-        Unit(name: "Cubic Inches", symbol: "in³", unit: UnitVolume.cubicInches),
-        Unit(name: "Cubic Feet", symbol: "ft³", unit: UnitVolume.cubicFeet),
-        Unit(name: "Teaspoons", symbol: "tsp", unit: UnitVolume.teaspoons),
-        Unit(name: "Tablespoons", symbol: "tbsp", unit: UnitVolume.tablespoons),
-        Unit(name: "Fluid Ounces", symbol: "fl oz", unit: UnitVolume.fluidOunces),
-        Unit(name: "Cups", symbol: "cup", unit: UnitVolume.cups),
-        Unit(name: "Pints", symbol: "pt", unit: UnitVolume.pints),
-        Unit(name: "Quarts", symbol: "qt", unit: UnitVolume.quarts),
-        Unit(name: "Gallon", symbol: "gal", unit: UnitVolume.gallons)
+        Unit(name: "Liters", unit: UnitVolume.liters),
+        Unit(name: "Milliliters", unit: UnitVolume.milliliters),
+        Unit(name: "Cubic Meters", unit: UnitVolume.cubicMeters),
+        Unit(name: "Cubic Inches", unit: UnitVolume.cubicInches),
+        Unit(name: "Cubic Feet", unit: UnitVolume.cubicFeet),
+        Unit(name: "Teaspoons", unit: UnitVolume.teaspoons),
+        Unit(name: "Tablespoons", unit: UnitVolume.tablespoons),
+        Unit(name: "Fluid Ounces", unit: UnitVolume.fluidOunces),
+        Unit(name: "Cups", unit: UnitVolume.cups),
+        Unit(name: "Pints", unit: UnitVolume.pints),
+        Unit(name: "Quarts", unit: UnitVolume.quarts),
+        Unit(name: "Gallon", unit: UnitVolume.gallons)
     ]
     
     let areaUnits: [Unit] = [
-        Unit(name: "Square Kilometers", symbol: "km²", unit: UnitArea.squareKilometers),
-        Unit(name: "Square Meters", symbol: "m²", unit: UnitArea.squareMeters),
-        Unit(name: "Square Centimeters", symbol: "cm²", unit: UnitArea.squareCentimeters),
-        Unit(name: "Square Millimeters", symbol: "mm²", unit: UnitArea.squareMillimeters),
-        Unit(name: "Square Inches", symbol: "in²", unit: UnitArea.squareInches),
-        Unit(name: "Square Feet", symbol: "ft²", unit: UnitArea.squareFeet),
-        Unit(name: "Square Yards", symbol: "yd²", unit: UnitArea.squareYards),
-        Unit(name: "Square Miles", symbol: "mi²", unit: UnitArea.squareMiles),
-        Unit(name: "Acres", symbol: "ac", unit: UnitArea.acres),
-        Unit(name: "Hectares", symbol: "ha", unit: UnitArea.hectares)
+        Unit(name: "Square Kilometers", unit: UnitArea.squareKilometers),
+        Unit(name: "Square Meters", unit: UnitArea.squareMeters),
+        Unit(name: "Square Centimeters", unit: UnitArea.squareCentimeters),
+        Unit(name: "Square Millimeters", unit: UnitArea.squareMillimeters),
+        Unit(name: "Square Inches", unit: UnitArea.squareInches),
+        Unit(name: "Square Feet", unit: UnitArea.squareFeet),
+        Unit(name: "Square Yards", unit: UnitArea.squareYards),
+        Unit(name: "Square Miles", unit: UnitArea.squareMiles),
+        Unit(name: "Acres", unit: UnitArea.acres),
+        Unit(name: "Hectares", unit: UnitArea.hectares)
     ]
     
     let temperatureUnits: [Unit] = [
-        Unit(name: "Kelvin", symbol: "K", unit: UnitTemperature.kelvin),
-        Unit(name: "Celsius", symbol: "°C", unit: UnitTemperature.celsius),
-        Unit(name: "Fahrenheit", symbol: "°F", unit: UnitTemperature.fahrenheit)
+        Unit(name: "Kelvin", unit: UnitTemperature.kelvin),
+        Unit(name: "Celsius", unit: UnitTemperature.celsius),
+        Unit(name: "Fahrenheit", unit: UnitTemperature.fahrenheit)
     ]
     
     let massUnits: [Unit] = [
-        Unit(name: "Tons", symbol: "t", unit: UnitMass.metricTons),
-        Unit(name: "Kilograms", symbol: "kg", unit: UnitMass.kilograms),
-        Unit(name: "Grams", symbol: "g", unit: UnitMass.grams),
-        Unit(name: "Milligrams", symbol: "mg", unit: UnitMass.milligrams),
-        Unit(name: "Ounces", symbol: "oz", unit: UnitMass.ounces),
-        Unit(name: "Pounds", symbol: "lb", unit: UnitMass.pounds),
+        Unit(name: "Tons", unit: UnitMass.metricTons),
+        Unit(name: "Kilograms", unit: UnitMass.kilograms),
+        Unit(name: "Grams", unit: UnitMass.grams),
+        Unit(name: "Milligrams", unit: UnitMass.milligrams),
+        Unit(name: "Ounces", unit: UnitMass.ounces),
+        Unit(name: "Pounds", unit: UnitMass.pounds),
     ]
     
     let storageUnits: [Unit] = [
-        Unit(name: "Bits", symbol: "b", unit: UnitInformationStorage.bits),
-        Unit(name: "Bytes", symbol: "B", unit: UnitInformationStorage.bytes),
-        Unit(name: "Kilobytes", symbol: "KB", unit: UnitInformationStorage.kilobytes),
-        Unit(name: "Megabytes", symbol: "MB", unit: UnitInformationStorage.megabytes),
-        Unit(name: "Gigabytes", symbol: "GB", unit: UnitInformationStorage.gigabytes),
-        Unit(name: "Terabytes", symbol: "TB", unit: UnitInformationStorage.terabytes),
-        Unit(name: "Petabytes", symbol: "PB", unit: UnitInformationStorage.petabytes)
+        Unit(name: "Bits", unit: UnitInformationStorage.bits),
+        Unit(name: "Bytes", unit: UnitInformationStorage.bytes),
+        Unit(name: "Kilobytes", unit: UnitInformationStorage.kilobytes),
+        Unit(name: "Megabytes", unit: UnitInformationStorage.megabytes),
+        Unit(name: "Gigabytes", unit: UnitInformationStorage.gigabytes),
+        Unit(name: "Terabytes", unit: UnitInformationStorage.terabytes),
+        Unit(name: "Petabytes", unit: UnitInformationStorage.petabytes)
     ]
     
     let timeUnits: [Unit] = [
-        Unit(name: "Nanosecond", symbol: "ns", unit: UnitDuration.nanoseconds),
-        Unit(name: "Microseconds", symbol: "μs", unit: UnitDuration.microseconds),
-        Unit(name: "Milliseconds", symbol: "ms", unit: UnitDuration.milliseconds),
-        Unit(name: "Seconds", symbol: "sec", unit: UnitDuration.seconds),
-        Unit(name: "Minutes", symbol: "min", unit: UnitDuration.minutes),
-        Unit(name: "Hours", symbol: "hr", unit: UnitDuration.hours),
+        Unit(name: "Nanosecond", unit: UnitDuration.nanoseconds),
+        Unit(name: "Microseconds", unit: UnitDuration.microseconds),
+        Unit(name: "Milliseconds", unit: UnitDuration.milliseconds),
+        Unit(name: "Seconds", unit: UnitDuration.seconds),
+        Unit(name: "Minutes", unit: UnitDuration.minutes),
+        Unit(name: "Hours", unit: UnitDuration.hours),
     ]
     
     let currencyUnits: [Unit] = [
-        Unit(name: "Mexican Peso", symbol: "MXN", unit: UnitCurrency.mexicanPeso),
-        Unit(name: "United States Dollar", symbol: "USD", unit: UnitCurrency.unitedStatesDollar),
-        Unit(name: "Euro", symbol: "EUR", unit: UnitCurrency.euro)
+        Unit(name: "Mexican Peso", unit: UnitCurrency.mexicanPeso),
+        Unit(name: "United States Dollar", unit: UnitCurrency.unitedStatesDollar),
+        Unit(name: "Euro", unit: UnitCurrency.euro)
     ]
 }

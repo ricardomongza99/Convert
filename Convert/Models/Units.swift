@@ -20,7 +20,6 @@ enum UnitType: String {
 
 struct Unit: Hashable {
     var name: String
-    var symbol: String
     var unit: Dimension
 }
 
