@@ -62,6 +62,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8C77827D27C8610D008084D2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8CD642A827C54D66002B3307 /* UnitTypeButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		8CCA48BC27BD71E9003C2B76 = {
 			isa = PBXGroup;
 			children = (
@@ -112,37 +120,13 @@
 		8CD6429D27C454DF002B3307 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8C77827D27C8610D008084D2 /* Components */,
 				8CCA48CA27BD71E9003C2B76 /* ContentView.swift */,
-				8CD642AA27C69EC8002B3307 /* ConverterView */,
-				8CD642AB27C69EDC002B3307 /* UnitTypesView */,
-				8CD642AC27C69EEE002B3307 /* UnitsPickerView */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8CD642AA27C69EC8002B3307 /* ConverterView */ = {
-			isa = PBXGroup;
-			children = (
 				8CD642A527C53E50002B3307 /* ConverterView.swift */,
-			);
-			path = ConverterView;
-			sourceTree = "<group>";
-		};
-		8CD642AB27C69EDC002B3307 /* UnitTypesView */ = {
-			isa = PBXGroup;
-			children = (
 				8C77826B27C6A47D008084D2 /* UnitTypesView.swift */,
-				8CD642A827C54D66002B3307 /* UnitTypeButton.swift */,
-			);
-			path = UnitTypesView;
-			sourceTree = "<group>";
-		};
-		8CD642AC27C69EEE002B3307 /* UnitsPickerView */ = {
-			isa = PBXGroup;
-			children = (
 				8CD6429F27C45520002B3307 /* UnitsPickerView.swift */,
 			);
-			path = UnitsPickerView;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
