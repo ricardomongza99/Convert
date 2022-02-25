@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C070F7627C312B400ACD490 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C070F7527C312B300ACD490 /* Units.swift */; };
+		8C070F7627C312B400ACD490 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C070F7527C312B300ACD490 /* Unit.swift */; };
 		8C070F7827C314AA00ACD490 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C070F7727C314AA00ACD490 /* ViewModel.swift */; };
 		8C77826C27C6A47D008084D2 /* UnitTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77826B27C6A47D008084D2 /* UnitTypesView.swift */; };
 		8C77826F27C84EF2008084D2 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77826E27C84EF2008084D2 /* View+Extension.swift */; };
@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8C070F7527C312B300ACD490 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		8C070F7527C312B300ACD490 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		8C070F7727C314AA00ACD490 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8C77826B27C6A47D008084D2 /* UnitTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTypesView.swift; sourceTree = "<group>"; };
 		8C77826E27C84EF2008084D2 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				8C070F7727C314AA00ACD490 /* ViewModel.swift */,
-				8C070F7527C312B300ACD490 /* Units.swift */,
+				8C070F7527C312B300ACD490 /* Unit.swift */,
 				8C77827B27C85953008084D2 /* UnitCurrency.swift */,
 			);
 			path = Models;
@@ -201,7 +201,7 @@
 			files = (
 				8CCA48CB27BD71E9003C2B76 /* ContentView.swift in Sources */,
 				8CD642A627C53E50002B3307 /* ConverterView.swift in Sources */,
-				8C070F7627C312B400ACD490 /* Units.swift in Sources */,
+				8C070F7627C312B400ACD490 /* Unit.swift in Sources */,
 				8CD6429C27C450D6002B3307 /* Double+Extension.swift in Sources */,
 				8C070F7827C314AA00ACD490 /* ViewModel.swift in Sources */,
 				8CCA48D827BD7645003C2B76 /* Color+Extension.swift in Sources */,
