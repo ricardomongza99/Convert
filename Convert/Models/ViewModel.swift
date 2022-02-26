@@ -52,7 +52,6 @@ final class ViewModel: ObservableObject {
                 currentUnits = temperatureUnits
             case .currency:
                 fetchCurrencies()
-                currentUnits = currencyUnits
             case .mass:
                 currentUnits = massUnits
             case .storage:
@@ -62,7 +61,7 @@ final class ViewModel: ObservableObject {
             }
             
             // TODO: Change indexes
-            if currentUnits.count > 2 {
+            if currentUnitType != .currency {
                 fromUnit = currentUnits[0]
                 toUnit = currentUnits[2]
             }
@@ -144,11 +143,10 @@ final class ViewModel: ObservableObject {
         Unit(name: "Hours", unit: UnitDuration.hours),
     ]
     
-    var currencyUnits: [Unit] = [
-        Unit(name: "EUR", unit: UnitCurrency.euro)
-    ]
-    
+    var currencyUnits: [Unit] = []
+        
     init() {
+        // TODO: User Defaults
         self.currentUnits = massUnits
         self.fromUnit = massUnits[0]
         self.toUnit = massUnits[1]
@@ -156,22 +154,29 @@ final class ViewModel: ObservableObject {
     
     private func fetchCurrencies() {
         guard let url = URL(string: "https://api.frankfurter.app/latest") else { return }
+        print("Fetching currency rates...")
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
                 print("Could not fetch latest currency data: \(error)")
             }
-            
+            print("Fetched")
+
             if let data = data {
                 let json = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as AnyObject
                 if let rates = json["rates"] as? [String: Double] {
-                    var currencies = [Unit]()
-                    for (key, value) in rates {
-                        let unit = UnitCurrency(symbol: key, converter: UnitConverterLinear(coefficient: 1/value))
-                        currencies.append(Unit(name: key, unit: unit))
+                    self.currencyUnits = [Unit(name: "EUR", unit: UnitCurrency.euro)]
+                    for (key, value) in rates.sorted(by: { $0.0 < $1.0 }) {
+                        let unit = UnitCurrency(symbol: key, value: value)
+                        self.currencyUnits.append(Unit(name: key, unit: unit))
                     }
                     
                     DispatchQueue.main.async {
-                        self.currencyUnits = currencies
+                        if self.currentUnitType == .currency {
+                            // TODO: User Defaults
+                            self.currentUnits = self.currencyUnits
+                            self.fromUnit = self.currentUnits[0]
+                            self.toUnit = self.currentUnits[2]
+                        }
                     }
                 }
             }
@@ -180,7 +185,7 @@ final class ViewModel: ObservableObject {
     }
         
     func swapUnits() {
-        
+        swap(&fromUnit, &toUnit)
     }
 
 }
