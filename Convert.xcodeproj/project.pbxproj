@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8C070F7627C312B400ACD490 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C070F7527C312B300ACD490 /* Unit.swift */; };
 		8C070F7827C314AA00ACD490 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C070F7727C314AA00ACD490 /* ViewModel.swift */; };
+		8C2AB5D927CC413F00B0ED5C /* CurrencyFlag.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C2AB5D827CC413F00B0ED5C /* CurrencyFlag.json */; };
 		8C77826C27C6A47D008084D2 /* UnitTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77826B27C6A47D008084D2 /* UnitTypesView.swift */; };
 		8C77826F27C84EF2008084D2 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77826E27C84EF2008084D2 /* View+Extension.swift */; };
 		8C77827C27C85953008084D2 /* UnitCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77827B27C85953008084D2 /* UnitCurrency.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		8C070F7527C312B300ACD490 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		8C070F7727C314AA00ACD490 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		8C2AB5D827CC413F00B0ED5C /* CurrencyFlag.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CurrencyFlag.json; sourceTree = "<group>"; };
 		8C77826B27C6A47D008084D2 /* UnitTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTypesView.swift; sourceTree = "<group>"; };
 		8C77826E27C84EF2008084D2 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		8C77827B27C85953008084D2 /* UnitCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitCurrency.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8C2AB5D727CC3FDE00B0ED5C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8C2AB5D827CC413F00B0ED5C /* CurrencyFlag.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		8C77827D27C8610D008084D2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 				8CD6429D27C454DF002B3307 /* Views */,
 				8C070F7427C312A800ACD490 /* Models */,
 				8CCA48D627BD7623003C2B76 /* Extensions */,
+				8C2AB5D727CC3FDE00B0ED5C /* Resources */,
 				8CCA48CC27BD71EA003C2B76 /* Assets.xcassets */,
 				8CCA48CE27BD71EA003C2B76 /* Preview Content */,
 			);
@@ -187,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C2AB5D927CC413F00B0ED5C /* CurrencyFlag.json in Resources */,
 				8CCA48D027BD71EA003C2B76 /* Preview Assets.xcassets in Resources */,
 				8CCA48CD27BD71EA003C2B76 /* Assets.xcassets in Resources */,
 			);
