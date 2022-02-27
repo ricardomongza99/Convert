@@ -41,6 +41,8 @@ final class ViewModel: ObservableObject {
 
     @Published var currentUnitType: UnitType = .mass {
         didSet {
+            if oldValue == currentUnitType { return }
+            
             switch currentUnitType {
             case .length:
                 currentUnits = lengthUnits
