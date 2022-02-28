@@ -165,11 +165,11 @@ final class ViewModel: ObservableObject {
 
             if let data = data {
                 let json = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as AnyObject
-                if let rates = json["rates"] as? [String: Double] {
-                    self.currencyUnits = [Unit(name: "EUR", unit: UnitCurrency.euro)]
+                if var rates = json["rates"] as? [String: Double] {
+                    rates["EUR"] = 1
                     for (key, value) in rates.sorted(by: { $0.0 < $1.0 }) {
                         let unit = UnitCurrency(symbol: key, value: value)
-                        self.currencyUnits.append(Unit(name: key, unit: unit))
+                        self.currencyUnits.append(Unit(name: "\(CurrencyFlag.dict[key] ?? "") \(key)", unit: unit))
                     }
                     
                     DispatchQueue.main.async {
