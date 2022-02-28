@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-enum UnitType: String {
+enum UnitType: String, CaseIterable {
     case length = "📏 Length"
     case volume = "💧 Volume"
     case area = "🖼 Area"
@@ -17,6 +17,7 @@ enum UnitType: String {
     case mass = "⚖️ Mass"
     case storage = "💾 Storage"
     case time = "⏱ Time"
+    case angle = "📐 Angle"
 }
 
 final class ViewModel: ObservableObject {
@@ -60,6 +61,8 @@ final class ViewModel: ObservableObject {
                 currentUnits = storageUnits
             case .time:
                 currentUnits = timeUnits
+            case .angle:
+                currentUnits = angleUnits
             }
             
             // TODO: Change indexes
@@ -70,7 +73,7 @@ final class ViewModel: ObservableObject {
         }
     }
     
-    let unitTypes: [UnitType] = [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time]
+    let unitTypes: [UnitType] = UnitType.allCases
     
     let lengthUnits: [Unit] = [
         Unit(name: "Kilometers", unit: UnitLength.kilometers),
@@ -143,6 +146,15 @@ final class ViewModel: ObservableObject {
         Unit(name: "Seconds", unit: UnitDuration.seconds),
         Unit(name: "Minutes", unit: UnitDuration.minutes),
         Unit(name: "Hours", unit: UnitDuration.hours),
+    ]
+    
+    let angleUnits: [Unit] = [
+        Unit(name: "Degrees", unit: UnitAngle.degrees),
+        Unit(name: "Arc Minutes", unit: UnitAngle.arcMinutes),
+        Unit(name: "Arc Seconds", unit: UnitAngle.arcSeconds),
+        Unit(name: "Radians", unit: UnitAngle.radians),
+        Unit(name: "Gradians", unit: UnitAngle.gradians),
+        Unit(name: "Revolutions", unit: UnitAngle.revolutions)
     ]
     
     var currencyUnits: [Unit] = []
