@@ -15,7 +15,8 @@ struct ConverterView: View {
     private var toValue: Double {
         if let value = Double(fromValue) {
             let temp = Measurement(value: value, unit: viewModel.fromUnit.unit)
-            return temp.converted(to: viewModel.toUnit.unit).value.rounded(4)
+            let roundAmount = viewModel.currentUnitType == .currency ? 2 : 4
+            return temp.converted(to: viewModel.toUnit.unit).value.rounded(roundAmount)
         } else {
             return 0
         }
