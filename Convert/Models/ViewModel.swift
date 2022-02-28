@@ -168,6 +168,7 @@ final class ViewModel: ObservableObject {
     
     private func fetchCurrencies() {
         guard let url = URL(string: "https://api.frankfurter.app/latest") else { return }
+        currencyUnits = []
         print("Fetching currency rates...")
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
