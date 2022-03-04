@@ -49,7 +49,6 @@
 		8C070F7427C312A800ACD490 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8C070F7727C314AA00ACD490 /* ConverterViewModel.swift */,
 				8C070F7527C312B300ACD490 /* Unit.swift */,
 				8C77827B27C85953008084D2 /* UnitCurrency.swift */,
 			);
@@ -108,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				8CCA48CA27BD71E9003C2B76 /* ConverterView.swift */,
+				8C070F7727C314AA00ACD490 /* ConverterViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
