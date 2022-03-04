@@ -8,18 +8,6 @@
 import SwiftUI
 import Combine
 
-enum UnitType: String {
-    case length = "📏 Length"
-    case area = "🖼 Area"
-    case volume = "💧 Volume"
-    case mass = "⚖️ Mass"
-    case currency = "💵 Currency"
-    case temperature = "🌡 Temp."
-    case storage = "💾 Storage"
-    case time = "⏱ Time"
-    case angle = "📐 Angle"
-}
-
 final class ConverterViewModel: ObservableObject {
     
     @Published var fromUnit: Unit {
@@ -79,6 +67,18 @@ final class ConverterViewModel: ObservableObject {
                 toUnit = currentUnits[2]
             }
         }
+    }
+    
+    enum UnitType: String {
+        case length = "📏 Length"
+        case area = "🖼 Area"
+        case volume = "💧 Volume"
+        case mass = "⚖️ Mass"
+        case currency = "💵 Currency"
+        case temperature = "🌡 Temp."
+        case storage = "💾 Storage"
+        case time = "⏱ Time"
+        case angle = "📐 Angle"
     }
     
     let unitTypes: [UnitType] = [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time, .angle]

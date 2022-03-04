@@ -135,7 +135,7 @@ struct ConverterView: View {
     }
     
     @ViewBuilder
-    private func unitTypeButton(unitType: UnitType, isSelected: Bool) -> some View {
+    private func unitTypeButton(unitType: ConverterViewModel.UnitType, isSelected: Bool) -> some View {
         Button {
             viewModel.currentUnitType = unitType
         } label: {
