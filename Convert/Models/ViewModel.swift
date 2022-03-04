@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-enum UnitType: String, CaseIterable {
+enum UnitType: String {
     case length = "📏 Length"
     case volume = "💧 Volume"
     case area = "🖼 Area"
@@ -36,6 +36,14 @@ final class ViewModel: ObservableObject {
                 fromUnit = oldValue
             }
         }
+    }
+    
+    @Published var fromValue: Double = 0
+    
+    var toValue: Double {
+        let temp = Measurement(value: fromValue, unit: fromUnit.unit)
+        let roundAmount = currentUnitType == .currency ? 2 : 4
+        return temp.converted(to: toUnit.unit).value.rounded(roundAmount)
     }
     
     @Published var currentUnits = [Unit]()
@@ -73,7 +81,7 @@ final class ViewModel: ObservableObject {
         }
     }
     
-    let unitTypes: [UnitType] = UnitType.allCases
+    let unitTypes: [UnitType] = [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time, .angle]
     
     let lengthUnits: [Unit] = [
         Unit(name: "Kilometers", unit: UnitLength.kilometers),
