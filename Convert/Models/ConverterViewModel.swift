@@ -20,7 +20,7 @@ enum UnitType: String {
     case angle = "📐 Angle"
 }
 
-final class ViewModel: ObservableObject {
+final class ConverterViewModel: ObservableObject {
     
     @Published var fromUnit: Unit {
         didSet {

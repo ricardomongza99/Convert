@@ -11,8 +11,8 @@ import SwiftUI
 struct ConvertApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(ViewModel())
+            ConverterView()
+                .environmentObject(ConverterViewModel())
         }
     }
 }

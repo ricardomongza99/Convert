@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @StateObject var viewModel = ViewModel()
+struct ConverterView: View {
+    @StateObject var viewModel = ConverterViewModel()
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -152,6 +152,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ConverterView()
     }
 }
