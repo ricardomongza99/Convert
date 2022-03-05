@@ -139,7 +139,7 @@ struct ConverterView: View {
         Button {
             viewModel.currentUnitType = unitType
         } label: {
-            Text(unitType.rawValue)
+            Text(LocalizedStringKey(unitType.rawValue))
                 .font(.callout)
                 .padding()
                 .foregroundColor(isSelected ? .white : .primaryColor)
@@ -153,5 +153,6 @@ struct ConverterView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ConverterView()
+            .environment(\.locale, .init(identifier: "es"))
     }
 }

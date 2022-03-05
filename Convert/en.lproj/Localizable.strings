@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Convert
+
+  Created by Ricardo Montemayor on 05/03/22.
+  
+*/
+
+"length" = "📏 Length";
+"area" = "🖼 Area";
+"volume" = "💧 Volume";
+"mass" = "⚖️ Mass";
+"currency" = "💵 Currency";
+"temperature" = "🌡 Temp.";
+"storage" = "💾 Storage";
+"time" = "⏱ Time";
+"angle" = "📐 Angle";

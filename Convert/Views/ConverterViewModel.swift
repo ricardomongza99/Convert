@@ -70,15 +70,15 @@ final class ConverterViewModel: ObservableObject {
     }
     
     enum UnitType: String {
-        case length = "📏 Length"
-        case area = "🖼 Area"
-        case volume = "💧 Volume"
-        case mass = "⚖️ Mass"
-        case currency = "💵 Currency"
-        case temperature = "🌡 Temp."
-        case storage = "💾 Storage"
-        case time = "⏱ Time"
-        case angle = "📐 Angle"
+        case length
+        case area
+        case volume
+        case mass
+        case currency
+        case temperature
+        case storage
+        case time
+        case angle
     }
     
     let unitTypes: [UnitType] = [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time, .angle]
