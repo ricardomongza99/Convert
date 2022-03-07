@@ -6,6 +6,7 @@
   
 */
 
+/* Unit types */
 "length" = "📏 Distancia";
 "area" = "🖼 Área";
 "volume" = "💧 Volumen";
@@ -15,3 +16,39 @@
 "storage" = "💾 Almacenamiento";
 "time" = "⏱ Tiempo";
 "angle" = "📐 Ángulo";
+
+/* Length units */
+"kilometers" = "Kilómetros";
+"meters" = "Metros";
+"centimeters" = "Centímetros";
+"millimeters" = "Milímetros";
+"inches" = "Pulgadas";
+"feet" = "Pies";
+"yards" = "Yardas";
+"miles" = "Millas";
+
+/* Area units */
+"square_kilometers" = "Kilómetros cuadrados";
+"square_meters" = "Metros cuadrados";
+"square_centimeters" = "Centímetros cuadrados";
+"square_millimeters" = "Milímetros cuadrados";
+"square_inches" = "Pulgadas cuadradas";
+"square_feet" = "Pies cuadrados";
+"square_yards" = "Yardas cuadradas";
+"square_miles" = "Millas cuadradas";
+"acres" = "Acres";
+"hectares" = "Hectáreas";
+
+/* Volume units */
+"liters" = "Litros";
+"milliliters" = "Mililitros";
+"cubic_meters" = "Metros cúbicos";
+"cubic_inches" = "Pulgadas cúbicas";
+"cubic_feet" = "Pies cúbicos";
+"teaspoons" = "Cucharillas";
+"tablespoons" = "Cucharas";
+"fluid_ounces" = "Onzas fluidas";
+"cups" = "Tazas";
+"pints" = "Pintas";
+"quarts" = "Cuartos";
+"gallons "= "Galones";

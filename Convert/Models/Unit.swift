@@ -15,46 +15,46 @@ struct Unit: Hashable {
 class UnitAPI {
     static func getLengthUnits() -> [Unit] {
         return [
-            Unit(name: "Kilometers", unit: UnitLength.kilometers),
-            Unit(name: "Meters", unit: UnitLength.meters),
-            Unit(name: "Centimeters", unit: UnitLength.centimeters),
-            Unit(name: "Millimeters", unit: UnitLength.millimeters),
-            Unit(name: "Inches", unit: UnitLength.inches),
-            Unit(name: "Feet", unit: UnitLength.feet),
-            Unit(name: "Yards", unit: UnitLength.yards),
-            Unit(name: "Miles", unit: UnitLength.miles)
+            Unit(name: "kilometers", unit: UnitLength.kilometers),
+            Unit(name: "meters", unit: UnitLength.meters),
+            Unit(name: "centimeters", unit: UnitLength.centimeters),
+            Unit(name: "millimeters", unit: UnitLength.millimeters),
+            Unit(name: "inches", unit: UnitLength.inches),
+            Unit(name: "feet", unit: UnitLength.feet),
+            Unit(name: "yards", unit: UnitLength.yards),
+            Unit(name: "miles", unit: UnitLength.miles)
         ]
     }
     
     static func getAreaUnits() -> [Unit] {
         return [
-            Unit(name: "Square Kilometers", unit: UnitArea.squareKilometers),
-            Unit(name: "Square Meters", unit: UnitArea.squareMeters),
-            Unit(name: "Square Centimeters", unit: UnitArea.squareCentimeters),
-            Unit(name: "Square Millimeters", unit: UnitArea.squareMillimeters),
-            Unit(name: "Square Inches", unit: UnitArea.squareInches),
-            Unit(name: "Square Feet", unit: UnitArea.squareFeet),
-            Unit(name: "Square Yards", unit: UnitArea.squareYards),
-            Unit(name: "Square Miles", unit: UnitArea.squareMiles),
-            Unit(name: "Acres", unit: UnitArea.acres),
-            Unit(name: "Hectares", unit: UnitArea.hectares)
+            Unit(name: "square_kilometers", unit: UnitArea.squareKilometers),
+            Unit(name: "square_meters", unit: UnitArea.squareMeters),
+            Unit(name: "square_centimeters", unit: UnitArea.squareCentimeters),
+            Unit(name: "square_millimeters", unit: UnitArea.squareMillimeters),
+            Unit(name: "square_inches", unit: UnitArea.squareInches),
+            Unit(name: "square_feet", unit: UnitArea.squareFeet),
+            Unit(name: "square_yards", unit: UnitArea.squareYards),
+            Unit(name: "square_miles", unit: UnitArea.squareMiles),
+            Unit(name: "acres", unit: UnitArea.acres),
+            Unit(name: "hectares", unit: UnitArea.hectares)
         ]
     }
     
     static func getVolumeUnits() -> [Unit] {
         return [
-            Unit(name: "Liters", unit: UnitVolume.liters),
-            Unit(name: "Milliliters", unit: UnitVolume.milliliters),
-            Unit(name: "Cubic Meters", unit: UnitVolume.cubicMeters),
-            Unit(name: "Cubic Inches", unit: UnitVolume.cubicInches),
-            Unit(name: "Cubic Feet", unit: UnitVolume.cubicFeet),
-            Unit(name: "Teaspoons", unit: UnitVolume.teaspoons),
-            Unit(name: "Tablespoons", unit: UnitVolume.tablespoons),
-            Unit(name: "Fluid Ounces", unit: UnitVolume.fluidOunces),
-            Unit(name: "Cups", unit: UnitVolume.cups),
-            Unit(name: "Pints", unit: UnitVolume.pints),
-            Unit(name: "Quarts", unit: UnitVolume.quarts),
-            Unit(name: "Gallon", unit: UnitVolume.gallons)
+            Unit(name: "liters", unit: UnitVolume.liters),
+            Unit(name: "milliliters", unit: UnitVolume.milliliters),
+            Unit(name: "cubic_meters", unit: UnitVolume.cubicMeters),
+            Unit(name: "cubic_inches", unit: UnitVolume.cubicInches),
+            Unit(name: "cubic_feet", unit: UnitVolume.cubicFeet),
+            Unit(name: "teaspoons", unit: UnitVolume.teaspoons),
+            Unit(name: "tablespoons", unit: UnitVolume.tablespoons),
+            Unit(name: "fluid_ounces", unit: UnitVolume.fluidOunces),
+            Unit(name: "cups", unit: UnitVolume.cups),
+            Unit(name: "pints", unit: UnitVolume.pints),
+            Unit(name: "quarts", unit: UnitVolume.quarts),
+            Unit(name: "gallons", unit: UnitVolume.gallons)
         ]
     }
     

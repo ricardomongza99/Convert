@@ -6,6 +6,7 @@
   
 */
 
+/* Unit types */
 "length" = "📏 Length";
 "area" = "🖼 Area";
 "volume" = "💧 Volume";
@@ -15,3 +16,39 @@
 "storage" = "💾 Storage";
 "time" = "⏱ Time";
 "angle" = "📐 Angle";
+
+/* Length units */
+"kilometers" = "Kilometers";
+"meters" = "Meters";
+"centimeters" = "Centimeters";
+"millimeters" = "Millimeters";
+"inches" = "Inches";
+"feet" = "Feet";
+"yards" = "Yards";
+"miles" = "Miles";
+
+/* Area units */
+"square_kilometers" = "Square kilometers";
+"square_meters" = "Square meters";
+"square_centimeters" = "Square centimeters";
+"square_millimeters" = "Square millimeters";
+"square_inches" = "Square inches";
+"square_feet" = "Square feet";
+"square_yards" = "Square yards";
+"square_miles" = "Square miles";
+"acres" = "Acres";
+"hectares" = "Hectares";
+
+/* Volume units */
+"liters" = "Liters";
+"milliliters" = "Milliliters";
+"cubic_meters" = "Cubic Meters";
+"cubic_inches" = "Cubic Inches";
+"cubic_feet" = "Cubic Feet";
+"teaspoons" = "Teaspoons";
+"tablespoons" = "Tablespoons";
+"fluid_ounces" = "Fluid Ounces";
+"cups" = "Cups";
+"pints" = "Pints";
+"quarts" = "Quarts";
+"gallons "= "Gallon";
