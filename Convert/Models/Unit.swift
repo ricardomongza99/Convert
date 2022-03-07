@@ -61,56 +61,56 @@ class UnitAPI {
     
     static func getMassUnits() -> [Unit] {
         return [
-            Unit(name: "Tons", unit: UnitMass.metricTons),
-            Unit(name: "Kilograms", unit: UnitMass.kilograms),
-            Unit(name: "Grams", unit: UnitMass.grams),
-            Unit(name: "Milligrams", unit: UnitMass.milligrams),
-            Unit(name: "Ounces", unit: UnitMass.ounces),
-            Unit(name: "Pounds", unit: UnitMass.pounds),
+            Unit(name: "tons", unit: UnitMass.metricTons),
+            Unit(name: "kilograms", unit: UnitMass.kilograms),
+            Unit(name: "grams", unit: UnitMass.grams),
+            Unit(name: "milligrams", unit: UnitMass.milligrams),
+            Unit(name: "ounces", unit: UnitMass.ounces),
+            Unit(name: "pounds", unit: UnitMass.pounds),
         ]
     }
 
     
     static func getTemperatureUnits() -> [Unit] {
         return [
-            Unit(name: "Kelvin", unit: UnitTemperature.kelvin),
-            Unit(name: "Celsius", unit: UnitTemperature.celsius),
-            Unit(name: "Fahrenheit", unit: UnitTemperature.fahrenheit)
+            Unit(name: "kelvin", unit: UnitTemperature.kelvin),
+            Unit(name: "celsius", unit: UnitTemperature.celsius),
+            Unit(name: "fahrenheit", unit: UnitTemperature.fahrenheit)
         ]
     }
 
     
     static func getStorageUnits() -> [Unit] {
         [
-            Unit(name: "Bits", unit: UnitInformationStorage.bits),
-            Unit(name: "Bytes", unit: UnitInformationStorage.bytes),
-            Unit(name: "Kilobytes", unit: UnitInformationStorage.kilobytes),
-            Unit(name: "Megabytes", unit: UnitInformationStorage.megabytes),
-            Unit(name: "Gigabytes", unit: UnitInformationStorage.gigabytes),
-            Unit(name: "Terabytes", unit: UnitInformationStorage.terabytes),
-            Unit(name: "Petabytes", unit: UnitInformationStorage.petabytes)
+            Unit(name: "bits", unit: UnitInformationStorage.bits),
+            Unit(name: "bytes", unit: UnitInformationStorage.bytes),
+            Unit(name: "kilobytes", unit: UnitInformationStorage.kilobytes),
+            Unit(name: "megabytes", unit: UnitInformationStorage.megabytes),
+            Unit(name: "gigabytes", unit: UnitInformationStorage.gigabytes),
+            Unit(name: "terabytes", unit: UnitInformationStorage.terabytes),
+            Unit(name: "petabytes", unit: UnitInformationStorage.petabytes)
         ]
     }
     
     static func getTimeUnits() -> [Unit] {
         return [
-            Unit(name: "Nanosecond", unit: UnitDuration.nanoseconds),
-            Unit(name: "Microseconds", unit: UnitDuration.microseconds),
-            Unit(name: "Milliseconds", unit: UnitDuration.milliseconds),
-            Unit(name: "Seconds", unit: UnitDuration.seconds),
-            Unit(name: "Minutes", unit: UnitDuration.minutes),
-            Unit(name: "Hours", unit: UnitDuration.hours),
+            Unit(name: "nanoseconds", unit: UnitDuration.nanoseconds),
+            Unit(name: "microseconds", unit: UnitDuration.microseconds),
+            Unit(name: "milliseconds", unit: UnitDuration.milliseconds),
+            Unit(name: "seconds", unit: UnitDuration.seconds),
+            Unit(name: "minutes", unit: UnitDuration.minutes),
+            Unit(name: "hours", unit: UnitDuration.hours),
         ]
     }
     
     static func getAngleUnits() -> [Unit] {
         return [
-            Unit(name: "Degrees", unit: UnitAngle.degrees),
-            Unit(name: "Arc Minutes", unit: UnitAngle.arcMinutes),
-            Unit(name: "Arc Seconds", unit: UnitAngle.arcSeconds),
-            Unit(name: "Radians", unit: UnitAngle.radians),
-            Unit(name: "Gradians", unit: UnitAngle.gradians),
-            Unit(name: "Revolutions", unit: UnitAngle.revolutions)
+            Unit(name: "degrees", unit: UnitAngle.degrees),
+            Unit(name: "arc_minutes", unit: UnitAngle.arcMinutes),
+            Unit(name: "arc_seconds", unit: UnitAngle.arcSeconds),
+            Unit(name: "radians", unit: UnitAngle.radians),
+            Unit(name: "gradians", unit: UnitAngle.gradians),
+            Unit(name: "revolutions", unit: UnitAngle.revolutions)
         ]
     }
 }

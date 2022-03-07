@@ -46,9 +46,47 @@
 "cubic_inches" = "Pulgadas cúbicas";
 "cubic_feet" = "Pies cúbicos";
 "teaspoons" = "Cucharillas";
-"tablespoons" = "Cucharas";
+"tablespoons" = "Cucharadas";
 "fluid_ounces" = "Onzas fluidas";
 "cups" = "Tazas";
 "pints" = "Pintas";
 "quarts" = "Cuartos";
-"gallons "= "Galones";
+"gallons" = "Galones";
+
+/* Mass units */
+"tons" = "Toneladas";
+"kilograms" = "Kilogramos";
+"grams" = "Gramos";
+"milligrams" = "Miligramos";
+"ounces" = "Onzas";
+"pounds" = "Libras";
+
+/* Temperature units */
+"kelvin" = "Kelvin";
+"celsius" = "Centígrados";
+"fahrenheit" = "Fahrenheit";
+
+/* Storage units */
+"bits" = "Bits";
+"bytes" = "Bytes";
+"kilobytes" = "Kilobytes";
+"megabytes" = "Megabytes";
+"gigabytes" = "Gigabytes";
+"terabytes" = "Terabytes";
+"petabytes" = "Petabytes";
+
+/* Time units */
+"nanoseconds" = "Nanosegundos";
+"microseconds" = "Microsegundos";
+"milliseconds" = "Milisegundos";
+"seconds" = "Segundos";
+"minutes" = "Minutos";
+"hours" = "Horas";
+
+/* Angle units */
+"degrees" = "Grados";
+"arc_minutes" = "Minutos de arco";
+"arc_seconds" = "Segundos de arco";
+"radians" = "Radianes";
+"gradians" = "Gradianes";
+"revolutions" = "Revoluciones";

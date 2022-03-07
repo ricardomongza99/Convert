@@ -51,4 +51,42 @@
 "cups" = "Cups";
 "pints" = "Pints";
 "quarts" = "Quarts";
-"gallons "= "Gallon";
+"gallons" = "Gallons";
+
+/* Mass units */
+"tons" = "Tons";
+"kilograms" = "Kilograms";
+"grams" = "Grams";
+"milligrams" = "Milligrams";
+"ounces" = "Ounces";
+"pounds" = "Pounds";
+
+/* Temperature units */
+"kelvin" = "Kelvin";
+"celsius" = "Celsius";
+"fahrenheit" = "Fahrenheit";
+
+/* Storage units */
+"bits" = "Bits";
+"bytes" = "Bytes";
+"kilobytes" = "Kilobytes";
+"megabytes" = "Megabytes";
+"gigabytes" = "Gigabytes";
+"terabytes" = "Terabytes";
+"petabytes" = "Petabytes";
+
+/* Time units */
+"nanoseconds" = "Nanoseconds";
+"microseconds" = "Microseconds";
+"milliseconds" = "Milliseconds";
+"seconds" = "Seconds";
+"minutes" = "Minutes";
+"hours" = "Hours";
+
+/* Angle units */
+"degrees" = "Degrees";
+"arc_minutes" = "Arc minutes";
+"arc_seconds" = "Arc seconds";
+"radians" = "Radians";
+"gradians" = "Gradians";
+"revolutions" = "Revolutions";
