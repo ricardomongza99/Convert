@@ -81,7 +81,7 @@ struct ConverterView: View {
                     HStack(spacing: 0) {
                         Picker("From", selection: $viewModel.fromUnit) {
                             ForEach(viewModel.currentUnits, id: \.self) {
-                                Text($0.name)
+                                Text(LocalizedStringKey($0.name))
                             }
                         }
                         .pickerStyle(.wheel)
@@ -93,7 +93,7 @@ struct ConverterView: View {
                         
                         Picker("To", selection: $viewModel.toUnit) {
                             ForEach(viewModel.currentUnits, id: \.self) {
-                                Text($0.name)
+                                Text(LocalizedStringKey($0.name))
                             }
                         }
                         .pickerStyle(.wheel)
