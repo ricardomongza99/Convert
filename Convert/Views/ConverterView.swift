@@ -82,6 +82,8 @@ struct ConverterView: View {
                         Picker("From", selection: $viewModel.fromUnit) {
                             ForEach(viewModel.currentUnits, id: \.self) {
                                 Text(LocalizedStringKey($0.name))
+                                    .frame(width: geometry.size.width/2 - 20)
+                                    .minimumScaleFactor(0.2)
                             }
                         }
                         .pickerStyle(.wheel)
@@ -94,6 +96,8 @@ struct ConverterView: View {
                         Picker("To", selection: $viewModel.toUnit) {
                             ForEach(viewModel.currentUnits, id: \.self) {
                                 Text(LocalizedStringKey($0.name))
+                                    .frame(width: geometry.size.width/2 - 20)
+                                    .minimumScaleFactor(0.2)
                             }
                         }
                         .pickerStyle(.wheel)
@@ -153,6 +157,7 @@ struct ConverterView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ConverterView()
+            .previewDevice("iPhone 8")
             .environment(\.locale, .init(identifier: "es"))
     }
 }
