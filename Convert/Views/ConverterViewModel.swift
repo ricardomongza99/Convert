@@ -61,7 +61,7 @@ final class ConverterViewModel: ObservableObject {
     init() {
         // TODO: User Defaults
         self.unitType = UnitType(rawValue: UserDefaults.standard.string(forKey: "unitType") ?? "mass")!
-        self.units = []
+        self.units = UnitAPI.getMassUnits()
         self.fromUnit = UnitAPI.getMassUnits()[0]
         self.toUnit = UnitAPI.getMassUnits()[2]
     }
