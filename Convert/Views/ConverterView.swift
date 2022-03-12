@@ -141,7 +141,7 @@ struct ConverterView: View {
     @ViewBuilder
     private func unitTypeButton(unitType: ConverterViewModel.UnitType, isSelected: Bool) -> some View {
         Button {
-            viewModel.unitType = unitType
+            viewModel.changeUnitType(unitType: unitType)
         } label: {
             Text(LocalizedStringKey(unitType.rawValue))
                 .font(.callout)
