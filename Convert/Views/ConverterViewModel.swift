@@ -56,12 +56,33 @@ final class ConverterViewModel: ObservableObject {
     let unitTypes: [UnitType] = [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time, .angle]
 
     /// A `Unit` array of the currently selected `unitType`
-    @Published var units: [Unit]
+    var units: [Unit] {
+        switch unitType {
+        case .length:
+            return UnitAPI.getLengthUnits()
+        case .volume:
+            return UnitAPI.getVolumeUnits()
+        case .area:
+            return UnitAPI.getAreaUnits()
+        case .temperature:
+            return UnitAPI.getTemperatureUnits()
+        case .currency:
+            // TODO: Fetch currencies
+            return []
+        case .mass:
+            return UnitAPI.getMassUnits()
+        case .storage:
+            return UnitAPI.getStorageUnits()
+        case .time:
+            return UnitAPI.getTimeUnits()
+        case .angle:
+            return UnitAPI.getAngleUnits()
+        }
+    }
 
     init() {
-        // TODO: User Defaults
         self.unitType = UnitType(rawValue: UserDefaults.standard.string(forKey: "unitType") ?? "mass")!
-        self.units = UnitAPI.getMassUnits()
+        // TODO: User Defaults
         self.fromUnit = UnitAPI.getMassUnits()[0]
         self.toUnit = UnitAPI.getMassUnits()[2]
     }
@@ -69,27 +90,6 @@ final class ConverterViewModel: ObservableObject {
     /// Updated `unitType`, `units` and gets `fromUnit` and `toUnit` from UserDefaults
     func changeUnitType(unitType: UnitType) {
         self.unitType = unitType
-        
-        switch unitType {
-        case .length:
-            units = UnitAPI.getLengthUnits()
-        case .volume:
-            units = UnitAPI.getVolumeUnits()
-        case .area:
-            units = UnitAPI.getAreaUnits()
-        case .temperature:
-            units = UnitAPI.getTemperatureUnits()
-        case .currency:
-            fetchCurrencies()
-        case .mass:
-            units = UnitAPI.getMassUnits()
-        case .storage:
-            units = UnitAPI.getStorageUnits()
-        case .time:
-            units = UnitAPI.getTimeUnits()
-        case .angle:
-            units = UnitAPI.getAngleUnits()
-        }
         
         // TODO: Change indexes
         if unitType != .currency {
@@ -120,7 +120,7 @@ final class ConverterViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         if self.unitType == .currency {
                             // TODO: User Defaults
-                            self.units = currencyUnits
+                            //self.units = currencyUnits
                             self.fromUnit = self.units[0]
                             self.toUnit = self.units[2]
                         }
