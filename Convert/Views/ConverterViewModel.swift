@@ -30,41 +30,43 @@ final class ConverterViewModel: ObservableObject {
     
     var toValue: Double {
         let temp = Measurement(value: fromValue, unit: fromUnit.unit)
-        let roundAmount = currentUnitType == .currency ? 2 : 4
+        let roundAmount = unitType == .currency ? 2 : 4
         return temp.converted(to: toUnit.unit).value.rounded(roundAmount)
     }
     
-    @Published var currentUnits = [Unit]()
+    /// A `Unit` array of the currently selected `unitType`
+    @Published var units: [Unit]
 
-    @Published var currentUnitType: UnitType = .mass {
+    /// The current `UnitType`
+    @Published var unitType: UnitType = .mass {
         didSet {
-            if oldValue == currentUnitType { return }
+            if oldValue == unitType { return }
             
-            switch currentUnitType {
+            switch unitType {
             case .length:
-                currentUnits = lengthUnits
+                units = lengthUnits
             case .volume:
-                currentUnits = volumeUnits
+                units = volumeUnits
             case .area:
-                currentUnits = areaUnits
+                units = areaUnits
             case .temperature:
-                currentUnits = temperatureUnits
+                units = temperatureUnits
             case .currency:
                 fetchCurrencies()
             case .mass:
-                currentUnits = massUnits
+                units = massUnits
             case .storage:
-                currentUnits = storageUnits
+                units = storageUnits
             case .time:
-                currentUnits = timeUnits
+                units = timeUnits
             case .angle:
-                currentUnits = angleUnits
+                units = angleUnits
             }
             
             // TODO: Change indexes
-            if currentUnitType != .currency {
-                fromUnit = currentUnits[0]
-                toUnit = currentUnits[2]
+            if unitType != .currency {
+                fromUnit = units[0]
+                toUnit = units[2]
             }
         }
     }
@@ -103,7 +105,7 @@ final class ConverterViewModel: ObservableObject {
         
     init() {
         // TODO: User Defaults
-        self.currentUnits = massUnits
+        self.units = massUnits
         self.fromUnit = massUnits[0]
         self.toUnit = massUnits[1]
     }
@@ -128,11 +130,11 @@ final class ConverterViewModel: ObservableObject {
                     }
                     
                     DispatchQueue.main.async {
-                        if self.currentUnitType == .currency {
+                        if self.unitType == .currency {
                             // TODO: User Defaults
-                            self.currentUnits = self.currencyUnits
-                            self.fromUnit = self.currentUnits[0]
-                            self.toUnit = self.currentUnits[2]
+                            self.units = self.currencyUnits
+                            self.fromUnit = self.units[0]
+                            self.toUnit = self.units[2]
                         }
                     }
                 }

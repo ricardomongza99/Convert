@@ -67,7 +67,7 @@ struct ConverterView: View {
                         ForEach(viewModel.unitTypes, id: \.self) { unitType in
                             unitTypeButton(
                                 unitType: unitType,
-                                isSelected: unitType == viewModel.currentUnitType
+                                isSelected: unitType == viewModel.unitType
                             )
                         }
                     }
@@ -80,7 +80,7 @@ struct ConverterView: View {
                 GeometryReader { geometry in
                     HStack(spacing: 0) {
                         Picker("From", selection: $viewModel.fromUnit) {
-                            ForEach(viewModel.currentUnits, id: \.self) {
+                            ForEach(viewModel.units, id: \.self) {
                                 Text(LocalizedStringKey($0.name))
                                     .frame(width: geometry.size.width/2 - 20)
                                     .minimumScaleFactor(0.2)
@@ -94,7 +94,7 @@ struct ConverterView: View {
                         Divider()
                         
                         Picker("To", selection: $viewModel.toUnit) {
-                            ForEach(viewModel.currentUnits, id: \.self) {
+                            ForEach(viewModel.units, id: \.self) {
                                 Text(LocalizedStringKey($0.name))
                                     .frame(width: geometry.size.width/2 - 20)
                                     .minimumScaleFactor(0.2)
@@ -141,7 +141,7 @@ struct ConverterView: View {
     @ViewBuilder
     private func unitTypeButton(unitType: ConverterViewModel.UnitType, isSelected: Bool) -> some View {
         Button {
-            viewModel.currentUnitType = unitType
+            viewModel.unitType = unitType
         } label: {
             Text(LocalizedStringKey(unitType.rawValue))
                 .font(.callout)
