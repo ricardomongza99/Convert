@@ -27,8 +27,8 @@ struct ConvertView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ConvertView()
-            .previewDevice("iPhone 13 Pro Max")
             .environmentObject(ConvertViewModel())
+            .previewDevice("iPhone 13 Pro Max")
             .environment(\.locale, .init(identifier: "es"))
     }
 }
