@@ -10,11 +10,40 @@ import Combine
 
 final class ConverterViewModel: ObservableObject {
     
+    /// The current `UnitType`
+    @Published var unitType: UnitType {
+        didSet {
+            UserDefaults.standard.set(unitType.rawValue, forKey: "unitType")
+            
+            // Update `fromUnit` and `toUnit`
+            if unitType != .currency {
+//                let fromUnitIndex = UserDefaults.standard.integer(forKey: "\(unitType.rawValue).fromUnitIndex")
+//                fromUnit = units[fromUnitIndex]
+//
+//                let toUnitIndex = UserDefaults.standard.integer(forKey: "\(unitType.rawValue).toUnitIndex")
+//                toUnit = units[toUnitIndex]
+                
+                fromUnit = units[0]
+                toUnit = units[2]
+            }
+        }
+    }
+    
+    let unitTypes: [UnitType] = [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time, .angle]
+
+    /// A `Unit` array of the currently selected `unitType`
+    var units: [Unit] {
+        UnitAPI.getUnits(forUnitType: unitType)
+    }
+    
     @Published var fromUnit: Unit {
         didSet {
             if fromUnit == toUnit {
                 toUnit = oldValue
             }
+            
+            //let index = units.firstIndex(of: fromUnit)
+            //UserDefaults.standard.set(index, forKey: "\(unitType.rawValue).fromUnitIndex")
         }
     }
     
@@ -23,6 +52,9 @@ final class ConverterViewModel: ObservableObject {
             if fromUnit == toUnit {
                 fromUnit = oldValue
             }
+            
+            //let index = units.firstIndex(of: toUnit)
+            //UserDefaults.standard.set(index, forKey: "\(unitType.rawValue).toUnitIndex")
         }
     }
     
@@ -33,69 +65,13 @@ final class ConverterViewModel: ObservableObject {
         let roundAmount = unitType == .currency ? 2 : 4
         return temp.converted(to: toUnit.unit).value.rounded(roundAmount)
     }
-    
-    enum UnitType: String {
-        case length
-        case area
-        case volume
-        case mass
-        case currency
-        case temperature
-        case storage
-        case time
-        case angle
-    }
-    
-    /// The current `UnitType`
-    @Published var unitType: UnitType {
-        didSet {
-            UserDefaults.standard.set(unitType.rawValue, forKey: "unitType")
-        }
-    }
-    
-    let unitTypes: [UnitType] = [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time, .angle]
-
-    /// A `Unit` array of the currently selected `unitType`
-    var units: [Unit] {
-        switch unitType {
-        case .length:
-            return UnitAPI.getLengthUnits()
-        case .volume:
-            return UnitAPI.getVolumeUnits()
-        case .area:
-            return UnitAPI.getAreaUnits()
-        case .temperature:
-            return UnitAPI.getTemperatureUnits()
-        case .currency:
-            // TODO: Fetch currencies
-            return []
-        case .mass:
-            return UnitAPI.getMassUnits()
-        case .storage:
-            return UnitAPI.getStorageUnits()
-        case .time:
-            return UnitAPI.getTimeUnits()
-        case .angle:
-            return UnitAPI.getAngleUnits()
-        }
-    }
 
     init() {
-        self.unitType = UnitType(rawValue: UserDefaults.standard.string(forKey: "unitType") ?? "mass")!
-        // TODO: User Defaults
-        self.fromUnit = UnitAPI.getMassUnits()[0]
-        self.toUnit = UnitAPI.getMassUnits()[2]
-    }
-    
-    /// Updated `unitType`, `units` and gets `fromUnit` and `toUnit` from UserDefaults
-    func changeUnitType(unitType: UnitType) {
+        let unitType = UnitType(rawValue: UserDefaults.standard.string(forKey: "unitType") ?? "mass")!
         self.unitType = unitType
         
-        // TODO: Change indexes
-        if unitType != .currency {
-            fromUnit = units[0]
-            toUnit = units[2]
-        }
+        self.fromUnit = UnitAPI.getUnits(forUnitType: unitType)[0]
+        self.toUnit = UnitAPI.getUnits(forUnitType: unitType)[2]
     }
     
     private func fetchCurrencies() {
