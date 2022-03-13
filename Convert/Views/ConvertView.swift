@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ConvertView: View {
-    @StateObject var viewModel = ConvertViewModel()
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
