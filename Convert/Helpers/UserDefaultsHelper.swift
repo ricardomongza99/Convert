@@ -18,7 +18,7 @@ final class UserDefaultsHelper {
     }
     
     static func setUnitIndex(unitType: UnitType, unit: Unit, fromUnit: Bool) {
-        let units = UnitAPI.getUnits(forUnitType: unitType)
+        let units = UnitAPI.getUnits(for: unitType)
         let index = units.firstIndex(of: unit)
         let prefix = fromUnit ? "from" : "to"
         UserDefaults.standard.set(index, forKey: "\(unitType.rawValue).\(prefix)UnitIndex")

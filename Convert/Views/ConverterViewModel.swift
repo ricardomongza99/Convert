@@ -25,7 +25,7 @@ final class ConverterViewModel: ObservableObject {
 
     /// A `Unit` array of the currently selected `unitType`
     var units: [Unit] {
-        UnitAPI.getUnits(forUnitType: unitType)
+        UnitAPI.getUnits(for: unitType)
     }
     
     @Published var fromUnit: Unit {
@@ -60,8 +60,8 @@ final class ConverterViewModel: ObservableObject {
         let unitType = UserDefaultsHelper.getUnitType()
         self.unitType = unitType
         
-        self.fromUnit = UnitAPI.getUnits(forUnitType: unitType)[UserDefaultsHelper.getUnitIndex(unitType: unitType, fromUnit: true)]
-        self.toUnit = UnitAPI.getUnits(forUnitType: unitType)[UserDefaultsHelper.getUnitIndex(unitType: unitType, fromUnit: false)]
+        self.fromUnit = UnitAPI.getUnits(for: unitType)[UserDefaultsHelper.getUnitIndex(unitType: unitType, fromUnit: true)]
+        self.toUnit = UnitAPI.getUnits(for: unitType)[UserDefaultsHelper.getUnitIndex(unitType: unitType, fromUnit: false)]
     }
     
     
