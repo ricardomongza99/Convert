@@ -113,10 +113,18 @@
 		8CD6429D27C454DF002B3307 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8CD6FB7127DD888700B75F94 /* Components */,
 				8CCA48CA27BD71E9003C2B76 /* ConvertView.swift */,
 				8C070F7727C314AA00ACD490 /* ConvertViewModel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8CD6FB7127DD888700B75F94 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		8CE4EA7927DD7C630019DB02 /* Helpers */ = {
