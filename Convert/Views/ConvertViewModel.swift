@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-final class ConverterViewModel: ObservableObject {
+final class ConvertViewModel: ObservableObject {
     
     /// The current `UnitType`
     @Published var unitType: UnitType {
