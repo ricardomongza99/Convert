@@ -16,8 +16,8 @@ final class ConverterViewModel: ObservableObject {
             UserDefaultsHelper.setUnitType(unitType: unitType)
             
             // Update values for `fromUnit` and `toUnit`
-            fromUnit = units[UserDefaultsHelper.getUnitIndex(unitType: unitType, fromUnit: true)]
-            toUnit = units[UserDefaultsHelper.getUnitIndex(unitType: unitType, fromUnit: false)]
+            fromUnit = UserDefaultsHelper.getUnit(unitType: unitType, fromUnit: true)
+            toUnit = UserDefaultsHelper.getUnit(unitType: unitType, fromUnit: false)
         }
     }
     
@@ -34,7 +34,7 @@ final class ConverterViewModel: ObservableObject {
                 toUnit = oldValue
             }
             
-            UserDefaultsHelper.setUnitIndex(unitType: unitType, unit: fromUnit, fromUnit: true)
+            UserDefaultsHelper.setUnit(unitType: unitType, unit: fromUnit, fromUnit: true)
         }
     }
     
@@ -44,7 +44,7 @@ final class ConverterViewModel: ObservableObject {
                 fromUnit = oldValue
             }
             
-            UserDefaultsHelper.setUnitIndex(unitType: unitType, unit: toUnit, fromUnit: false)
+            UserDefaultsHelper.setUnit(unitType: unitType, unit: toUnit, fromUnit: false)
         }
     }
     
@@ -60,8 +60,8 @@ final class ConverterViewModel: ObservableObject {
         let unitType = UserDefaultsHelper.getUnitType()
         self.unitType = unitType
         
-        self.fromUnit = UnitAPI.getUnits(for: unitType)[UserDefaultsHelper.getUnitIndex(unitType: unitType, fromUnit: true)]
-        self.toUnit = UnitAPI.getUnits(for: unitType)[UserDefaultsHelper.getUnitIndex(unitType: unitType, fromUnit: false)]
+        self.fromUnit = UserDefaultsHelper.getUnit(unitType: unitType, fromUnit: true)
+        self.toUnit = UserDefaultsHelper.getUnit(unitType: unitType, fromUnit: false)
     }
     
     
