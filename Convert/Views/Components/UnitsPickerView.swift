@@ -1,0 +1,20 @@
+//
+//  UnitsPickerView.swift
+//  Convert
+//
+//  Created by Ricardo Montemayor on 12/03/22.
+//
+
+import SwiftUI
+
+struct UnitsPickerView: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+struct UnitsPickerView_Previews: PreviewProvider {
+    static var previews: some View {
+        UnitsPickerView()
+    }
+}
