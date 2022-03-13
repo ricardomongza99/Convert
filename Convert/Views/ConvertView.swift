@@ -14,7 +14,7 @@ struct ConvertView: View {
         VStack(alignment: .center, spacing: 0) {
             ConverterView()
             UnitTypeSelectionView()
-            UnitsPickerView()
+            UnitsPickersView()
             Spacer()
             
         }

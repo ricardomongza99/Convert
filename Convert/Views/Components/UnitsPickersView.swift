@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UnitsPickerView: View {
+struct UnitsPickersView: View {
     @EnvironmentObject var viewModel: ConvertViewModel
 
     var body: some View {
@@ -56,7 +56,7 @@ struct UnitsPickerView: View {
 
 struct UnitsPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        UnitsPickerView()
+        UnitsPickersView()
             .environmentObject(ConvertViewModel())
     }
 }
