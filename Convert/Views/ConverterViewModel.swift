@@ -13,16 +13,11 @@ final class ConverterViewModel: ObservableObject {
     /// The current `UnitType`
     @Published var unitType: UnitType {
         didSet {
-            UserDefaults.standard.set(unitType.rawValue, forKey: "unitType")
+            UserDefaultsHelper.setUnitType(unitType: unitType)
             
-            // Update `fromUnit` and `toUnit`
-            if unitType != .currency {
-                let fromUnitIndex = UserDefaults.standard.object(forKey: "\(unitType.rawValue).fromUnitIndex") as? Int ?? 0
-                fromUnit = units[fromUnitIndex]
-
-                let toUnitIndex = UserDefaults.standard.object(forKey: "\(unitType.rawValue).toUnitIndex") as? Int ?? 1
-                toUnit = units[toUnitIndex]
-            }
+            // Update values for `fromUnit` and `toUnit`
+            fromUnit = units[UserDefaultsHelper.getUnitIndex(unitType: unitType, fromUnit: true)]
+            toUnit = units[UserDefaultsHelper.getUnitIndex(unitType: unitType, fromUnit: false)]
         }
     }
     
@@ -39,8 +34,7 @@ final class ConverterViewModel: ObservableObject {
                 toUnit = oldValue
             }
             
-            let index = units.firstIndex(of: fromUnit)
-            UserDefaults.standard.set(index, forKey: "\(unitType.rawValue).fromUnitIndex")
+            UserDefaultsHelper.setUnitIndex(unitType: unitType, unit: fromUnit, fromUnit: true)
         }
     }
     
@@ -50,8 +44,7 @@ final class ConverterViewModel: ObservableObject {
                 fromUnit = oldValue
             }
             
-            let index = units.firstIndex(of: toUnit)
-            UserDefaults.standard.set(index, forKey: "\(unitType.rawValue).toUnitIndex")
+            UserDefaultsHelper.setUnitIndex(unitType: unitType, unit: toUnit, fromUnit: false)
         }
     }
     
@@ -64,15 +57,13 @@ final class ConverterViewModel: ObservableObject {
     }
 
     init() {
-        let unitType = UnitType(rawValue: UserDefaults.standard.string(forKey: "unitType") ?? "mass")!
+        let unitType = UserDefaultsHelper.getUnitType()
         self.unitType = unitType
         
-        let fromUnitIndex = UserDefaults.standard.object(forKey: "\(unitType.rawValue).fromUnitIndex") as? Int ?? 0
-        self.fromUnit = UnitAPI.getUnits(forUnitType: unitType)[fromUnitIndex]
-        
-        let toUnitIndex = UserDefaults.standard.object(forKey: "\(unitType.rawValue).toUnitIndex") as? Int ?? 1
-        self.toUnit = UnitAPI.getUnits(forUnitType: unitType)[toUnitIndex]
+        self.fromUnit = UnitAPI.getUnits(forUnitType: unitType)[UserDefaultsHelper.getUnitIndex(unitType: unitType, fromUnit: true)]
+        self.toUnit = UnitAPI.getUnits(forUnitType: unitType)[UserDefaultsHelper.getUnitIndex(unitType: unitType, fromUnit: false)]
     }
+    
     
     private func fetchCurrencies() {
         guard let url = URL(string: "https://api.frankfurter.app/latest") else { return }
