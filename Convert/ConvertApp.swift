@@ -12,6 +12,7 @@ struct ConvertApp: App {
     var body: some Scene {
         WindowGroup {
             ConvertView()
+                .environmentObject(ConvertViewModel())
         }
     }
 }
