@@ -26,6 +26,10 @@ struct Unit: Hashable {
 
 class UnitAPI {
     
+    static func getUnitTypes() -> [UnitType] {
+        return [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time, .angle]
+    }
+    
     static func getUnits(for unitType: UnitType) -> [Unit] {
         switch unitType {
         case .length:

@@ -21,7 +21,7 @@ final class ConverterViewModel: ObservableObject {
         }
     }
     
-    let unitTypes: [UnitType] = [.length, .area, .volume, .mass, .currency, .temperature, .storage, .time, .angle]
+    let unitTypes: [UnitType] = UnitAPI.getUnitTypes()
 
     /// A `Unit` array of the currently selected `unitType`
     var units: [Unit] {
