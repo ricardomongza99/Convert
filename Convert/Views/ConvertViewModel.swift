@@ -19,10 +19,12 @@ final class ConvertViewModel: ObservableObject {
                 
                 units = UnitAPI.getUnits(for: unitType)
                 
-                // Update values for `fromUnit` and `toUnit`
+                // Update values for `fromUnit` and  `toUnit`
                 fromUnit = UserDefaultsHelper.getUnit(unitType: unitType, fromUnit: true)
                 toUnit = UserDefaultsHelper.getUnit(unitType: unitType, fromUnit: false)
             }
+            // Update value for `fromValue`
+            fromValue = UserDefaultsHelper.getValue(for: unitType)
         }
     }
     
@@ -51,7 +53,11 @@ final class ConvertViewModel: ObservableObject {
         }
     }
     
-    @Published var fromValue: String = "1"
+    @Published var fromValue: String {
+        didSet {
+            UserDefaultsHelper.setValue(for: unitType, value: fromValue)
+        }
+    }
     
     var toValue: Double {
         let temp = Measurement(value: Double(fromValue) ?? 0.0, unit: fromUnit.unit)
@@ -65,6 +71,7 @@ final class ConvertViewModel: ObservableObject {
         self.units = UnitAPI.getUnits(for: unitType)
         self.fromUnit = UserDefaultsHelper.getUnit(unitType: unitType, fromUnit: true)
         self.toUnit = UserDefaultsHelper.getUnit(unitType: unitType, fromUnit: false)
+        self.fromValue = UserDefaultsHelper.getValue(for: unitType)
     }
     
     func updateCurrencies() async {
