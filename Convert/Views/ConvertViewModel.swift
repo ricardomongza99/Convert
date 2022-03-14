@@ -51,10 +51,10 @@ final class ConvertViewModel: ObservableObject {
         }
     }
     
-    @Published var fromValue: Double = 0
+    @Published var fromValue: String = "1"
     
     var toValue: Double {
-        let temp = Measurement(value: fromValue, unit: fromUnit.unit)
+        let temp = Measurement(value: Double(fromValue) ?? 0.0, unit: fromUnit.unit)
         let roundAmount = unitType == .currency ? 2 : 4
         return temp.converted(to: toUnit.unit).value.rounded(roundAmount)
     }

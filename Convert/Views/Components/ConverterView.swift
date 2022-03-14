@@ -13,7 +13,7 @@ struct ConverterView: View {
     var body: some View {
         VStack {
             HStack(alignment: .center, spacing: 20) {
-                TextField("", value: $viewModel.fromValue, format: .number)
+                TextField("", text: $viewModel.fromValue)
                     .multilineTextAlignment(.center)
                     .font(.title)
                     .frame(height: 64)
