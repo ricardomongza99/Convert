@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UnitTypeSelectionView: View {
     @EnvironmentObject var viewModel: ConvertViewModel
+    @State private var isUpdatingCurrencies = false
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -28,6 +29,13 @@ struct UnitTypeSelectionView: View {
     private func unitTypeButton(unitType: UnitType, isSelected: Bool) -> some View {
         Button {
             viewModel.unitType = unitType
+            if unitType == .currency {
+                Task {
+                    isUpdatingCurrencies = true
+                    await viewModel.updateCurrencies()
+                    isUpdatingCurrencies = false
+                }
+            }
         } label: {
             Text(LocalizedStringKey(unitType.rawValue))
                 .font(.callout)
@@ -36,7 +44,14 @@ struct UnitTypeSelectionView: View {
                 .background(isSelected ? Color.lightGray : Color.white)
                 .clipShape(Capsule(style: .continuous))
                 .shadow(color: .lightGray, radius: 8.0, x: 0, y: 0)
+                .opacity(unitType == .currency && isUpdatingCurrencies ? 0 : 1)
+                .overlay{
+                    if unitType == .currency && isUpdatingCurrencies {
+                        ProgressView()
+                    }
+                }
         }
+        .disabled(isSelected || isUpdatingCurrencies)
     }
 }
 

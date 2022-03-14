@@ -30,4 +30,11 @@ final class UserDefaultsHelper {
         let index = UserDefaults.standard.object(forKey: "\(unitType.rawValue).\(prefix)UnitIndex") as? Int ?? defaultIndex
         return UnitAPI.getUnits(for: unitType)[index]
     }
+    
+    static func getUnitCurrency(units: [Unit], fromUnit: Bool) -> Unit {
+        let prefix = fromUnit ? "from" : "to"
+        let defaultIndex = fromUnit ? 30 : 19
+        let index = UserDefaults.standard.object(forKey: "\(UnitType.currency.rawValue).\(prefix)UnitIndex") as? Int ?? defaultIndex
+        return units[index]
+    }
 }
