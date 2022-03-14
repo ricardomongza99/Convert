@@ -7,6 +7,8 @@
 
 import Foundation
 
+// TODO: Improve this layer
+
 final class CurrenciesService {
     static let shared = CurrenciesService()
     
