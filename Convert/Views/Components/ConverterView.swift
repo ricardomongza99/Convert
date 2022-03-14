@@ -42,12 +42,13 @@ struct ConverterView: View {
             HStack(alignment: .top, spacing: 0) {
                 unitText(text: viewModel.fromUnit.unit.symbol)
 
-                // TODO: Figure out why it does not work with @MainActor
-//                Button(action: viewModel.swapUnits) {
-//                    Image("arrows")
-//                        .aspectRatio(1, contentMode: .fit)
-//                        .frame(width: 40, height: 40)
-//                }
+                Button {
+                    viewModel.swapUnits()
+                } label: {
+                    Image("arrows")
+                        .aspectRatio(1, contentMode: .fit)
+                        .frame(width: 40, height: 40)
+                }
 
                 unitText(text: viewModel.toUnit.unit.symbol)
             }
