@@ -37,7 +37,7 @@ final class ConvertViewModel: ObservableObject {
                 toUnit = oldValue
             }
             
-            UserDefaultsHelper.setUnit(unitType: unitType, unit: fromUnit, fromUnit: true)
+            UserDefaultsHelper.setUnit(unitType: unitType, units: units, unit: fromUnit, fromUnit: true)
         }
     }
     
@@ -47,7 +47,7 @@ final class ConvertViewModel: ObservableObject {
                 fromUnit = oldValue
             }
             
-            UserDefaultsHelper.setUnit(unitType: unitType, unit: toUnit, fromUnit: false)
+            UserDefaultsHelper.setUnit(unitType: unitType, units: units, unit: toUnit, fromUnit: false)
         }
     }
     

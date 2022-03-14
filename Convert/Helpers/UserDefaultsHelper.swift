@@ -17,8 +17,7 @@ final class UserDefaultsHelper {
         return UnitType(rawValue: UserDefaults.standard.string(forKey: "unitType") ?? "mass")!
     }
     
-    static func setUnit(unitType: UnitType, unit: Unit, fromUnit: Bool) {
-        let units = UnitAPI.getUnits(for: unitType)
+    static func setUnit(unitType: UnitType, units: [Unit], unit: Unit, fromUnit: Bool) {
         let index = units.firstIndex(of: unit)
         let prefix = fromUnit ? "from" : "to"
         UserDefaults.standard.set(index, forKey: "\(unitType.rawValue).\(prefix)UnitIndex")
@@ -30,6 +29,8 @@ final class UserDefaultsHelper {
         let index = UserDefaults.standard.object(forKey: "\(unitType.rawValue).\(prefix)UnitIndex") as? Int ?? defaultIndex
         return UnitAPI.getUnits(for: unitType)[index]
     }
+    
+
     
     static func getUnitCurrency(units: [Unit], fromUnit: Bool) -> Unit {
         let prefix = fromUnit ? "from" : "to"
