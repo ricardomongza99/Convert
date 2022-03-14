@@ -15,13 +15,13 @@ final class ConvertViewModel: ObservableObject {
     @Published var unitType: UnitType {
         didSet {
             if unitType != .currency {
-                UserDefaultsHelper.setUnitType(unitType: unitType)
+                UserDefaultsHelper.setUnitType(for: unitType)
                 
                 units = UnitAPI.getUnits(for: unitType)
                 
                 // Update values for `fromUnit` and  `toUnit`
-                fromUnit = UserDefaultsHelper.getUnit(unitType: unitType, fromUnit: true)
-                toUnit = UserDefaultsHelper.getUnit(unitType: unitType, fromUnit: false)
+                fromUnit = UserDefaultsHelper.getUnit(for: unitType, fromUnit: true)
+                toUnit = UserDefaultsHelper.getUnit(for: unitType, fromUnit: false)
             }
             // Update value for `fromValue`
             fromValue = UserDefaultsHelper.getValue(for: unitType)
@@ -39,7 +39,7 @@ final class ConvertViewModel: ObservableObject {
                 toUnit = oldValue
             }
             
-            UserDefaultsHelper.setUnit(unitType: unitType, units: units, unit: fromUnit, fromUnit: true)
+            UserDefaultsHelper.setUnit(for: unitType, units: units, unit: fromUnit, fromUnit: true)
         }
     }
     
@@ -49,7 +49,7 @@ final class ConvertViewModel: ObservableObject {
                 fromUnit = oldValue
             }
             
-            UserDefaultsHelper.setUnit(unitType: unitType, units: units, unit: toUnit, fromUnit: false)
+            UserDefaultsHelper.setUnit(for: unitType, units: units, unit: toUnit, fromUnit: false)
         }
     }
     
@@ -69,8 +69,8 @@ final class ConvertViewModel: ObservableObject {
         let unitType = UserDefaultsHelper.getUnitType()
         self.unitType = unitType
         self.units = UnitAPI.getUnits(for: unitType)
-        self.fromUnit = UserDefaultsHelper.getUnit(unitType: unitType, fromUnit: true)
-        self.toUnit = UserDefaultsHelper.getUnit(unitType: unitType, fromUnit: false)
+        self.fromUnit = UserDefaultsHelper.getUnit(for: unitType, fromUnit: true)
+        self.toUnit = UserDefaultsHelper.getUnit(for: unitType, fromUnit: false)
         self.fromValue = UserDefaultsHelper.getValue(for: unitType)
     }
     
