@@ -24,9 +24,7 @@ struct UnitsPickersView: View {
                 .frame(width: geometry.size.width / 2)
                 .clipped()
                 .animation(.easeInOut, value: viewModel.fromUnit)
-                
-                Divider()
-                
+                                
                 Picker("To", selection: $viewModel.toUnit) {
                     ForEach(viewModel.units, id: \.self) {
                         Text(LocalizedStringKey($0.name))
@@ -38,15 +36,12 @@ struct UnitsPickersView: View {
                 .frame(width: geometry.size.width / 2)
                 .clipped()
                 .animation(.easeInOut, value: viewModel.toUnit)
-
             }
-            .overlay(
+            .background(
                 RoundedRectangle(cornerRadius: 40)
-                    .stroke(Color.lightGray, lineWidth: 1)
+                    .fill(Color.lightGray)
             )
-            .background(Color.white)
-            .cornerRadius(40)
-            .shadow(color: .lightGray, radius: 8.0, x: 0, y: 0)
+                
 
         }
         .padding([.leading, .trailing])

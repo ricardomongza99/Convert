@@ -19,14 +19,12 @@ struct ConverterView: View {
                     .frame(height: 64)
                     .padding([.leading, .trailing], 8)
                     .background(
-                        Capsule().fill(Color.white)
+                        Capsule().fill(Color.lightGray)
                     )
                     .keyboardType(.decimalPad)
                     
                 Text("=")
-                    .foregroundColor(.white)
                     .font(.title)
-                    .bold()
 
                 Text(viewModel.toValue, format: .number)
                     .font(.title)
@@ -34,7 +32,7 @@ struct ConverterView: View {
                     .frame(maxWidth: .infinity)
                     .padding([.leading, .trailing], 8)
                     .background(
-                        Capsule().fill(Color.white)
+                        Capsule().fill(Color.lightGray)
                     )
 
             }
@@ -45,23 +43,25 @@ struct ConverterView: View {
                 Button {
                     viewModel.swapUnits()
                 } label: {
-                    Image("arrows")
-                        .aspectRatio(1, contentMode: .fit)
-                        .frame(width: 40, height: 40)
+                    Image("ArrowsIcon")
+                        .resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(.primaryColor)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50, height: 50)
                 }
 
                 unitText(text: viewModel.toUnit.unit.symbol)
             }
         }
         .padding()
-        .background(Color.primaryColor)
     }
     
     @ViewBuilder
     private func unitText(text: String) -> some View {
         Text(text)
             .font(.title)
-            .foregroundColor(.white)
+            .foregroundColor(.black)
             .frame(maxWidth: .infinity)
     }
 }

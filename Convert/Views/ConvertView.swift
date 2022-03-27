@@ -10,12 +10,11 @@ import SwiftUI
 struct ConvertView: View {
     
     var body: some View {
-        VStack(alignment: .center, spacing: 0) {
+        VStack {
             ConverterView()
             UnitTypeSelectionView()
             UnitsPickersView()
             Spacer()
-            
         }
         .onTapGesture {
             self.hideKeyboard()

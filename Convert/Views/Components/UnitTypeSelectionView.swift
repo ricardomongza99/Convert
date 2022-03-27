@@ -39,17 +39,18 @@ struct UnitTypeSelectionView: View {
         } label: {
             Text(LocalizedStringKey(unitType.rawValue))
                 .font(.callout)
-                .padding()
-                .foregroundColor(isSelected ? .white : .primaryColor)
-                .background(isSelected ? Color.lightGray : Color.white)
-                .clipShape(Capsule(style: .continuous))
-                .shadow(color: .lightGray, radius: 8.0, x: 0, y: 0)
-                .opacity(unitType == .currency && isUpdatingCurrencies ? 0 : 1)
-                .overlay{
-                    if unitType == .currency && isUpdatingCurrencies {
-                        ProgressView()
-                    }
-                }
+                .bold()
+            
+        }
+        .padding()
+        .foregroundColor(isSelected ? .white : .black)
+        .background(isSelected ? Color.primaryColor : Color.lightGray)
+        .clipShape(Capsule(style: .continuous))
+        .opacity(unitType == .currency && isUpdatingCurrencies ? 0 : 1)
+        .overlay{
+            if unitType == .currency && isUpdatingCurrencies {
+                ProgressView()
+            }
         }
         .disabled(isSelected || isUpdatingCurrencies)
     }
