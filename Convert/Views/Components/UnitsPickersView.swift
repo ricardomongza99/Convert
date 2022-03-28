@@ -13,29 +13,17 @@ struct UnitsPickersView: View {
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
-                Picker("From", selection: $viewModel.fromUnit) {
-                    ForEach(viewModel.units, id: \.self) {
-                        Text(LocalizedStringKey($0.name))
-                            .frame(width: geometry.size.width/2 - 20)
-                            .minimumScaleFactor(0.2)
-                    }
-                }
-                .pickerStyle(.wheel)
-                .frame(width: geometry.size.width / 2)
-                .clipped()
-                .animation(.easeInOut, value: viewModel.fromUnit)
+                unitsPicker(
+                    titleKey: "From",
+                    selection: $viewModel.fromUnit,
+                    width: geometry.size.width / 2
+                )
                                 
-                Picker("To", selection: $viewModel.toUnit) {
-                    ForEach(viewModel.units, id: \.self) {
-                        Text(LocalizedStringKey($0.name))
-                            .frame(width: geometry.size.width/2 - 20)
-                            .minimumScaleFactor(0.2)
-                    }
-                }
-                .pickerStyle(.wheel)
-                .frame(width: geometry.size.width / 2)
-                .clipped()
-                .animation(.easeInOut, value: viewModel.toUnit)
+                unitsPicker(
+                    titleKey: "To",
+                    selection: $viewModel.toUnit,
+                    width: geometry.size.width / 2
+                )
             }
             .background(
                 RoundedRectangle(cornerRadius: 40)
@@ -46,6 +34,22 @@ struct UnitsPickersView: View {
         }
         .padding([.leading, .trailing])
         .frame(height: 250)
+    }
+    
+     // MARK: - COMPONENTS
+    
+    @ViewBuilder
+    private func unitsPicker(titleKey: String, selection: Binding<Unit>, width: CGFloat) -> some View {
+        Picker(titleKey, selection: selection) {
+            ForEach(viewModel.units, id: \.self) {
+                Text(LocalizedStringKey($0.name))
+                    .minimumScaleFactor(0.2)
+            }
+        }
+        .frame(width: width)
+        .pickerStyle(.wheel)
+        .clipped()
+        .animation(.easeInOut, value: viewModel.fromUnit)
     }
 }
 

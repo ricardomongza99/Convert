@@ -25,6 +25,8 @@ struct UnitTypeSelectionView: View {
         }
     }
     
+    // MARK: - COMPONENTS
+    
     @ViewBuilder
     private func unitTypeButton(unitType: UnitType, isSelected: Bool) -> some View {
         Button {
