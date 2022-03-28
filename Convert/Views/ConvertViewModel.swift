@@ -11,6 +11,8 @@ import Combine
 @MainActor
 final class ConvertViewModel: ObservableObject {
     
+    // MARK: - PROPERTIES
+    
     /// The current `UnitType`
     @Published var unitType: UnitType {
         didSet {
@@ -64,6 +66,8 @@ final class ConvertViewModel: ObservableObject {
         let roundAmount = unitType == .currency ? 2 : 4
         return temp.converted(to: toUnit.unit).value.rounded(roundAmount)
     }
+    
+    // MARK: - INITIALIZERS
 
     init() {
         let unitType = UserDefaultsHelper.getUnitType()
@@ -73,6 +77,8 @@ final class ConvertViewModel: ObservableObject {
         self.toUnit = UserDefaultsHelper.getUnit(for: unitType, fromUnit: false)
         self.fromValue = UserDefaultsHelper.getValue(for: unitType)
     }
+    
+    // MARK: - METHODS
     
     func updateCurrencies() async {
         units = await CurrenciesService.shared.fetchCurrencies()

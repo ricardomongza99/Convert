@@ -29,8 +29,6 @@ struct UnitsPickersView: View {
                 RoundedRectangle(cornerRadius: 40)
                     .fill(Color.lightGray)
             )
-                
-
         }
         .frame(height: 220)
         .padding([.leading, .trailing, .top])
