@@ -32,7 +32,8 @@ struct UnitsPickersView: View {
                 
 
         }
-        .padding([.leading, .trailing])
+        .frame(height: 220)
+        .padding([.leading, .trailing, .top])
     }
     
      // MARK: - COMPONENTS
@@ -42,6 +43,7 @@ struct UnitsPickersView: View {
         Picker(titleKey, selection: selection) {
             ForEach(viewModel.units, id: \.self) {
                 Text(LocalizedStringKey($0.name))
+                    .frame(width: width)
                     .minimumScaleFactor(0.2)
             }
         }

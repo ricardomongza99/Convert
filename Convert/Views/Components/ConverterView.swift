@@ -26,7 +26,7 @@ struct ConverterView: View {
                 unitText(text: viewModel.toUnit.unit.symbol)
             }
         }
-        .padding()
+        .padding([.leading, .trailing])
     }
     
     // MARK: - COMPONENTS

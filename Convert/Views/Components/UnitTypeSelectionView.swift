@@ -21,7 +21,7 @@ struct UnitTypeSelectionView: View {
                     )
                 }
             }
-            .padding()
+            .padding([.leading, .trailing])
         }
     }
     
@@ -44,7 +44,8 @@ struct UnitTypeSelectionView: View {
                 .bold()
             
         }
-        .padding()
+        .padding([.leading, .trailing])
+        .padding([.top, .bottom], 12)
         .foregroundColor(isSelected ? .white : .primary)
         .background(isSelected ? Color.primaryColor : Color.lightGray)
         .clipShape(Capsule(style: .continuous))

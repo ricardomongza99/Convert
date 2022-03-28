@@ -14,7 +14,9 @@ struct ConvertView: View {
             ConverterView()
             UnitTypeSelectionView()
             UnitsPickersView()
+            Spacer()
         }
+        .padding(.top)
         .onTapGesture {
             self.hideKeyboard()
         }
@@ -25,7 +27,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ConvertView()
             .environmentObject(ConvertViewModel())
-            .previewDevice("iPhone 13 Pro Max")
+            //.previewDevice("iPad Pro(9.7-inch")
             .preferredColorScheme(.light)
             .environment(\.locale, .init(identifier: "es"))
     }
