@@ -26,7 +26,7 @@ struct ContentView_Previews: PreviewProvider {
         ConvertView()
             .environmentObject(ConvertViewModel())
             .previewDevice("iPhone 13 Pro Max")
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
             .environment(\.locale, .init(identifier: "es"))
     }
 }
