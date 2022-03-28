@@ -60,7 +60,6 @@ struct ConverterView: View {
     private func unitText(text: String) -> some View {
         Text(text)
             .font(.title)
-            .foregroundColor(.black)
             .frame(maxWidth: .infinity)
     }
     

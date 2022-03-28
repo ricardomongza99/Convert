@@ -33,7 +33,6 @@ struct UnitsPickersView: View {
 
         }
         .padding([.leading, .trailing])
-        .frame(height: 250)
     }
     
      // MARK: - COMPONENTS

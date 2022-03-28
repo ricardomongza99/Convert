@@ -45,7 +45,7 @@ struct UnitTypeSelectionView: View {
             
         }
         .padding()
-        .foregroundColor(isSelected ? .white : .black)
+        .foregroundColor(isSelected ? .white : .primary)
         .background(isSelected ? Color.primaryColor : Color.lightGray)
         .clipShape(Capsule(style: .continuous))
         .opacity(unitType == .currency && isUpdatingCurrencies ? 0 : 1)
