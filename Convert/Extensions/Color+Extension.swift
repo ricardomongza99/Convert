@@ -8,6 +8,6 @@
 import SwiftUI
 
 extension Color {
-    static let primaryColor = Color("primary")
+    static let primaryColor = Color("Primary")
     static let lightGray = Color("neutral")
 }
