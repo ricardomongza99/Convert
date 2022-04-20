@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - BODY
+
 struct ConverterView: View {
     @EnvironmentObject var viewModel: ConvertViewModel
 
@@ -28,10 +30,21 @@ struct ConverterView: View {
         }
         .padding([.leading, .trailing])
     }
+}
+
+// MARK: - PREVIEWS
+
+struct ConverterView_Previews: PreviewProvider {
+    static var previews: some View {
+        ConverterView()
+            .environmentObject(ConvertViewModel())
+    }
+}
+
+// MARK: - COMPONENTS
+
+extension ConverterView {
     
-    // MARK: - COMPONENTS
-    
-    @ViewBuilder
     private func inputTextField(text: Binding<String>) -> some View {
         TextField("", text: text)
             .multilineTextAlignment(.center)
@@ -43,8 +56,7 @@ struct ConverterView: View {
             )
             .keyboardType(.decimalPad)
     }
-    
-    @ViewBuilder
+
     private var outputText: some View {
         Text(viewModel.toValue, format: .number)
             .font(.title)
@@ -55,15 +67,13 @@ struct ConverterView: View {
                 Capsule().fill(Color.lightGray)
             )
     }
-    
-    @ViewBuilder
+
     private func unitText(text: String) -> some View {
         Text(text)
             .font(.title)
             .frame(maxWidth: .infinity)
     }
-    
-    @ViewBuilder
+
     private var convertButton: some View {
         Button {
             viewModel.swapUnits()
@@ -75,12 +85,5 @@ struct ConverterView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50, height: 50)
         }
-    }
-}
-
-struct ConverterView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConverterView()
-            .environmentObject(ConvertViewModel())
     }
 }

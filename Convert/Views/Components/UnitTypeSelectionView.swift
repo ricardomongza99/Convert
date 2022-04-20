@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - BODY
+
 struct UnitTypeSelectionView: View {
     @EnvironmentObject var viewModel: ConvertViewModel
     @State private var isUpdatingCurrencies = false
@@ -24,10 +26,21 @@ struct UnitTypeSelectionView: View {
             .padding([.leading, .trailing])
         }
     }
+}
+
+// MARK: - PREVIEWS
+
+struct UnitTypeSelectionView_Previews: PreviewProvider {
+    static var previews: some View {
+        UnitTypeSelectionView()
+            .environmentObject(ConvertViewModel())
+    }
+}
+
+// MARK: - COMPONENTS
+
+extension UnitTypeSelectionView {
     
-    // MARK: - COMPONENTS
-    
-    @ViewBuilder
     private func unitTypeButton(unitType: UnitType, isSelected: Bool) -> some View {
         Button {
             viewModel.unitType = unitType
@@ -56,12 +69,5 @@ struct UnitTypeSelectionView: View {
             }
         }
         .disabled(isSelected || isUpdatingCurrencies)
-    }
-}
-
-struct UnitTypeSelectionView_Previews: PreviewProvider {
-    static var previews: some View {
-        UnitTypeSelectionView()
-            .environmentObject(ConvertViewModel())
     }
 }

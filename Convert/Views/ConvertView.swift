@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - BODY
+
 struct ConvertView: View {
     
     var body: some View {
@@ -22,6 +24,8 @@ struct ConvertView: View {
         }
     }
 }
+
+// MARK: - PREVIEWS
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

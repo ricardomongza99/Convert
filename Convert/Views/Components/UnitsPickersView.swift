@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - BODY
+
 struct UnitsPickersView: View {
     @EnvironmentObject var viewModel: ConvertViewModel
 
@@ -33,10 +35,21 @@ struct UnitsPickersView: View {
         .frame(height: 220)
         .padding([.leading, .trailing, .top])
     }
+}
+
+// MARK: - PREVIEWS
+
+struct UnitsPickerView_Previews: PreviewProvider {
+    static var previews: some View {
+        UnitsPickersView()
+            .environmentObject(ConvertViewModel())
+    }
+}
+
+// MARK: - COMPONENTS
+
+extension UnitsPickersView {
     
-     // MARK: - COMPONENTS
-    
-    @ViewBuilder
     private func unitsPicker(titleKey: String, selection: Binding<Unit>, width: CGFloat) -> some View {
         Picker(titleKey, selection: selection) {
             ForEach(viewModel.units, id: \.self) {
@@ -49,12 +62,5 @@ struct UnitsPickersView: View {
         .pickerStyle(.wheel)
         .clipped()
         .animation(.easeInOut, value: viewModel.fromUnit)
-    }
-}
-
-struct UnitsPickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        UnitsPickersView()
-            .environmentObject(ConvertViewModel())
     }
 }
